@@ -6,7 +6,8 @@
 //  Copyright © 2017 Олег. All rights reserved.
 //
 
-import UIKit
+import UIKit.UIScrollView
+
 fileprivate extension UIView {
     var parentViewController: UIViewController? {
         var parentResponder: UIResponder? = self

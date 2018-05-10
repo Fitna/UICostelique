@@ -6,7 +6,7 @@
 //  Copyright © 2017 Олег. All rights reserved.
 //
 
-import UIKit
+import UIKit.UILabel
 
 class LabelWithBackground: UILabel {
     @IBInspectable var background:UIImage?
@@ -18,12 +18,4 @@ class LabelWithBackground: UILabel {
         }
         super.draw(rect)
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

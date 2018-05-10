@@ -6,7 +6,7 @@
 //  Copyright © 2017 Олег. All rights reserved.
 //
 
-import UIKit
+import UIKit.UINavigationController
 
 class TransparentNavigationController: UINavigationController {
     override func viewDidLoad() {

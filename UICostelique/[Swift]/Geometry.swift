@@ -65,18 +65,6 @@ extension CGSize {
 }
 
 extension CGPoint {
-    func add(_ point:CGPoint) -> CGPoint {
-        return CGPoint(x: self.x + point.x, y: self.y + point.y)
-    }
-    
-    func subtract(_ point:CGPoint) -> CGPoint {
-        return CGPoint(x: self.x - point.x, y: self.y - point.y)
-    }
-    
-    func scale(_ scale:CGFloat) -> CGPoint {
-        return CGPoint(x: self.x * scale, y: self.y * scale)
-    }
-    
     func distance(to point:CGPoint) -> CGFloat {
         let x : Double = Double(point.x - self.x)
         let y : Double = Double(point.y - self.y)
@@ -85,16 +73,23 @@ extension CGPoint {
 }
 
 extension CGRect {
-    func shift(_ shift:CGFloat) -> CGRect {
-        return CGRect(x: self.origin.x + shift, y: self.origin.y + shift, width: self.size.width - 2 * shift, height: self.size.height - 2 * shift)
+    func shift(_ shift: CGFloat) -> CGRect {
+        return CGRect(x: self.origin.x + shift,
+                      y: self.origin.y + shift,
+                      width: self.size.width - 2 * shift,
+                      height: self.size.height - 2 * shift)
     }
     
     func shift(_ insets: UIEdgeInsets) -> CGRect {
-        return CGRect(x: self.origin.x - insets.left, y: self.origin.y - insets.bottom, width: self.size.width + insets.left + insets.right, height: self.size.height + insets.top + insets.bottom)
+        return CGRect(x: self.origin.x + insets.left,
+                      y: self.origin.y + insets.bottom,
+                      width: self.size.width - insets.left - insets.right,
+                      height: self.size.height - insets.top - insets.bottom)
     }
     
     func center () -> CGPoint {
-        return CGPoint(x: self.origin.x + self.size.width / 2, y: self.origin.y + self.size.height / 2)
+        return CGPoint(x: self.origin.x + self.size.width / 2,
+                       y: self.origin.y + self.size.height / 2)
     }
     
     func round() -> CGRect {
@@ -119,6 +114,10 @@ func - (left: CGSize, right: CGSize) -> CGSize {
     return CGSize(width: left.width - right.width, height: left.height - right.height)
 }
 
+func + (left: CGSize, right: CGSize) -> CGSize {
+    return CGSize(width: left.width + right.width, height: left.height + right.height)
+}
+
 //CGPoint
 func - (left: CGPoint, right: CGPoint) -> CGPoint {
     return CGPoint(x: left.x - right.x, y: left.y - right.y)
@@ -128,16 +127,12 @@ func + (left: CGPoint, right: CGPoint) -> CGPoint {
     return CGPoint(x: left.x + right.x, y: left.y + right.y)
 }
 
+func * (left: CGPoint, right: CGFloat) -> CGPoint {
+    return CGPoint(x: left.x * right, y: left.y * right)
+}
+
 func / (left: CGPoint, right: CGFloat) -> CGPoint {
     return CGPoint(x: left.x / right, y: left.y / right)
 }
 
 
-extension SCNVector3 {
-    fileprivate func sqare(_ float: Float) -> Float {
-        return float * float
-    }
-    func distance(toVector vector: SCNVector3) -> Float {
-        return sqrtf(sqare(self.x - vector.x) + sqare(self.y - vector.y) + sqare(self.z - vector.z))
-    }
-}

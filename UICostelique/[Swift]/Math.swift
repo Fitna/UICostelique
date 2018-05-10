@@ -6,10 +6,7 @@
 //  Copyright © 2017 Олег. All rights reserved.
 //
 
-import Foundation
-
-let YES = true
-let NO = false
+import CoreGraphics.CGBase
 
 prefix operator √
 

@@ -39,6 +39,7 @@ public extension EnumCollection {
     static var count: Int {
         return allValues.count
     }
+
     var index : Int {
         return Self.allValues.index(of: self)!
     }
