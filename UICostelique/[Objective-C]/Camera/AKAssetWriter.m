@@ -27,7 +27,7 @@
     
 //    AVOutputSettingsAssistant *assistant = [AVOutputSettingsAssistant outputSettingsAssistantWithPreset:AVOutputSettingsPreset960x540];
     NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   AVVideoCodecH264, AVVideoCodecKey,
+                                   AVVideoCodecTypeH264, AVVideoCodecKey,
                                    AVVideoScalingModeResizeAspect, AVVideoScalingModeKey,
                                    [NSNumber numberWithInt:size.width], AVVideoWidthKey,
                                    [NSNumber numberWithInt:size.height], AVVideoHeightKey,

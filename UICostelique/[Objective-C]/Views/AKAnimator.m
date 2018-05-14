@@ -9,15 +9,17 @@
 #import "AKAnimator.h"
 #import <objc/runtime.h>
 
+@interface AKAnimator ()
+@property (weak) UIView *view;
+@property () BOOL animateHideing;
+@property () BOOL animateHideingLastValue;
+@end
+
 @implementation AKAnimator
 {
-    __weak UIView *_view;
-    bool _animateHideing;
-    bool _animateHideingLastValue;
 }
 
--(instancetype)initWithView:(UIView *)view
-{
+-(instancetype)initWithView:(UIView *)view {
     _view = view;
     _duration = -1;
     _amplitude = 1;
@@ -116,19 +118,19 @@
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          if (hide) {
-                             _view.alpha = 0;
-                             _view.transform = scaled;
+                             self.view.alpha = 0;
+                             self.view.transform = scaled;
                          }
                          else {
-                             _view.alpha = 1;
-                             _view.transform = CGAffineTransformIdentity;
+                             self.view.alpha = 1;
+                             self.view.transform = CGAffineTransformIdentity;
                          }
                      }
                      completion:^(BOOL finished){
-                         if (hide && _animateHideingLastValue) {
-                             _view.hidden = YES;
+                         if (hide && self.animateHideingLastValue) {
+                             self.view.hidden = YES;
                          }
-                         _animateHideing = NO;
+                         self.animateHideing = NO;
                      }
      ];
 }
@@ -156,13 +158,13 @@
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                             _view.alpha = hide ? 0 : 1;
+                             self.view.alpha = hide ? 0 : 1;
                      }
                      completion:^(BOOL finished){
-                         if (hide && _animateHideingLastValue) {
-                             _view.hidden = YES;
+                         if (hide &&  self.animateHideingLastValue) {
+                              self.view.hidden = YES;
                          }
-                         _animateHideing = NO;
+                          self.animateHideing = NO;
                      }
      ];
 }

@@ -41,9 +41,24 @@ static NSDate *startDate;
 
 +(instancetype)timerNamed:(NSString *)str {
 #ifdef DEBUG
-    return staticVariableWithID(str, ^id{
-        return [[AKTimer alloc] initWithName:str];
+    static NSMutableDictionary *allTimers;
+    static dispatch_queue_t queue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        allTimers = [[NSMutableDictionary alloc] init];
+        queue = dispatch_queue_create("timerNamed", DISPATCH_QUEUE_CONCURRENT);
     });
+    __block id var;
+    dispatch_sync(queue, ^{
+        var = [allTimers objectForKey:str];
+    });
+    if (!var) {
+        var = [[AKTimer alloc] initWithName:str];
+        dispatch_barrier_sync(queue, ^{
+            [allTimers setObject:var forKey:str];
+        });
+    }
+    return var;
 #else
     return nil;
 #endif
@@ -82,15 +97,15 @@ static NSDate *startDate;
     NSDate *logDate = [NSDate date];
     __block float f;
     dispatch_sync(_que, ^{
-        f = [_values valueForKey:str].floatValue;
+        f = [self->_values valueForKey:str].floatValue;
     });
     
     f += [logDate timeIntervalSinceDate:self.start];
     
     dispatch_barrier_sync(_que, ^{
-        [_values setValue:@(f) forKey:str];
-        if (![_keys containsObject:str]) {
-            [_keys addObject:str];
+        [self->_values setValue:@(f) forKey:str];
+        if (![self->_keys containsObject:str]) {
+            [self->_keys addObject:str];
         }
     });
     [self reset];
@@ -103,7 +118,7 @@ static NSDate *startDate;
 -(void)printAfterIterations:(NSInteger)iterations {
     __block long iter;
     dispatch_barrier_sync(_que, ^{
-        iter = ++_printIterations;
+        iter = ++self->_printIterations;
     });
     if (iter % iterations) {
         return;
@@ -118,15 +133,15 @@ static NSDate *startDate;
     dispatch_sync(_que, ^{
         dispatch_sync(printQueue, ^{
             NSLog(@" ");
-            NSLog(@" <TIMER name = \"%@\">", _name);
+            NSLog(@" <TIMER name = \"%@\">", self->_name);
             float sum = 0;
             float iterations = iter;//[[_iterations valueForKey:key] floatValue];;
-            for (NSString *key in _keys) {
-                float value = [(NSNumber *)[_values valueForKey:key] floatValue];
+            for (NSString *key in self->_keys) {
+                float value = [(NSNumber *)[self->_values valueForKey:key] floatValue];
                 sum += value;
                 NSLog(@"    %f - %@ ",value/iterations,key);
             }
-            if (_keys.count > 1){
+            if (self->_keys.count > 1){
                 NSLog(@"   --------------");
                 NSLog(@"   All: %f (%d iterations)", (sum / (float)iter), (int)iter);
             }
@@ -136,9 +151,9 @@ static NSDate *startDate;
     
     if (self.clearOnPrint) {
         dispatch_barrier_sync(_que, ^{
-            _keys = [[NSMutableArray alloc] init];
-            _values = [[NSMutableDictionary alloc] init];
-            _printIterations = 0;
+            self->_keys = [[NSMutableArray alloc] init];
+            self->_values = [[NSMutableDictionary alloc] init];
+            self->_printIterations = 0;
         });
     }
 }

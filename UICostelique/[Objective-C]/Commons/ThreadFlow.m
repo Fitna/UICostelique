@@ -58,7 +58,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((sec - 0.08)* NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         long i;
         @synchronized (self) {
-            i = --_counter;
+            i = --self->_counter;
         }
         if (!i && block) {
             dispatch_async(dispatch_get_main_queue(), block);

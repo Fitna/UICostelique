@@ -90,7 +90,7 @@ INIT_ALL(initialize)
 
 -(void)startTouchAnimation {
     [UIView transitionWithView:_label duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionCurveEaseOut animations:^{
-        _label.textColor = [UIColor whiteColor];
+        self.label.textColor = [UIColor whiteColor];
     } completion:nil];
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -103,7 +103,7 @@ INIT_ALL(initialize)
 -(void)stopTouchAnimation
 {
     [UIView transitionWithView:_label duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionCurveEaseOut animations:^{
-        _label.textColor = [UIColor blackColor];
+        self.label.textColor = [UIColor blackColor];
     } completion:nil];
     [_layStroke removeAnimationForKey:@"sdadasasdasd"];
 }

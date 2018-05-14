@@ -119,7 +119,7 @@
 -(void)setAllowedViews:(NSArray *)clickableViews {
     NSMutableArray *mut =  [clickableViews mutableCopy];
     dispatch_barrier_sync(_arrayQueue, ^{
-        _viewsInUse = mut;
+        self.viewsInUse = mut;
     });
     self.maskNeedsUpdadte = YES;
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -130,7 +130,7 @@
 -(NSArray *)viewInUseCopy {
     __block NSArray *arr;
     dispatch_sync(_arrayQueue, ^{
-        arr = [_viewsInUse copy];
+        arr = [self.viewsInUse copy];
     });
     return arr;
 }

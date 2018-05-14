@@ -12,6 +12,8 @@
 #import "UICosteliqueImages.h"
 #import "UICosteliqueScene.h"
 
+#import "CollectionController.h"
+
 #import "ViewFromXib.h"
 #import "UIView.h"
 #import "GradientView.h"

@@ -40,11 +40,11 @@
 
 -(Geometry *(^)(CGSize))fill {
     return ^id(CGSize sizeToFill) {
-        CGSize size = _rect.size;
+        CGSize size = self->_rect.size;
         float ratio = size.width / size.height;
         CGSize szFill = ratio <  sizeToFill.width / sizeToFill.height ? CGSizeMake(sizeToFill.width, sizeToFill.width / ratio) : CGSizeMake(sizeToFill.height * ratio, sizeToFill.height);
         CGPoint pntFill = CGPointMake(sizeToFill.width/2.-szFill.width/2., sizeToFill.height/2.-szFill.height/2.);
-        _rect =  CGRectMake(pntFill.x, pntFill.y, szFill.width, szFill.height);
+        self->_rect =  CGRectMake(pntFill.x, pntFill.y, szFill.width, szFill.height);
         return self;
     };
 }
@@ -52,18 +52,18 @@
 -(Geometry *(^)(CGSize))fit
 {
     return ^id(CGSize sizeToFit) {
-        CGSize size = _rect.size;
+        CGSize size = self->_rect.size;
         float ratio = size.width / size.height;
         CGSize szFit = (ratio > sizeToFit.width / sizeToFit.height) ? CGSizeMake(sizeToFit.width, sizeToFit.width / ratio) : CGSizeMake(sizeToFit.height * ratio, sizeToFit.height);
         CGPoint pntFit = CGPointMake(sizeToFit.width/2.-szFit.width/2., sizeToFit.height/2.-szFit.height/2.);
-        _rect = CGRectMake(pntFit.x, pntFit.y, szFit.width, szFit.height);
+        self->_rect = CGRectMake(pntFit.x, pntFit.y, szFit.width, szFit.height);
         return self;
     };
 }
 -(Geometry *(^)(CGFloat))scale
 {
     return ^id(CGFloat scale) {
-        _rect = CGRectMake(_rect.origin.x*scale, _rect.origin.y*scale, _rect.size.width*scale, _rect.size.height*scale);
+        self->_rect = CGRectMake(self->_rect.origin.x*scale, self->_rect.origin.y*scale, self->_rect.size.width*scale, self->_rect.size.height*scale);
         return self;
     };
 }
@@ -71,15 +71,15 @@
 -(Geometry *(^)(CGFloat))shift
 {
     return ^id(CGFloat shift) {
-        _rect = CGRectMake(_rect.origin.x+shift, _rect.origin.y+shift, _rect.size.width-shift*2., _rect.size.height-shift*2.);;
+        self->_rect = CGRectMake(self->_rect.origin.x+shift, self->_rect.origin.y+shift, self->_rect.size.width-shift*2., self->_rect.size.height-shift*2.);;
         return self;
     };
 }
 -(Geometry *(^)(CGPoint))move
 {
     return ^id(CGPoint move) {
-        _rect.origin.x += move.x;
-        _rect.origin.y += move.y;
+        self->_rect.origin.x += move.x;
+        self->_rect.origin.y += move.y;
         return self;
     };
 }
