@@ -11,7 +11,6 @@
 #import <objc/runtime.h>
 
 @implementation UIView (Costelique)
-
 -(void)removeAllSubviewsRecursively:(bool)flag;
 {
     if (flag) {

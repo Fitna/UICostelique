@@ -29,9 +29,9 @@
     rect.size.width = round(rect.size.width);
     rect.size.height = round(rect.size.height);
 
-//    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
-//    UIImage *result = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
-//    CGImageRelease(imageRef);
+    //    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+    //    UIImage *result = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
+    //    CGImageRelease(imageRef);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, self.scale);
     [self drawAtPoint:CGPointMake(-rect.origin.x, -rect.origin.y)];
     UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
@@ -53,7 +53,6 @@
     return [self resize:size withScale: self.scale];
 }
 
-
 - (NSString *)MD5HexDigest {
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     NSData *rep = UIImagePNGRepresentation(self);
@@ -64,6 +63,7 @@
     }
     return ret;
 }
+
 - (UIImage *)scaleAndRotateImage
 {
     CGImageRef imgRef = self.CGImage;
@@ -155,47 +155,6 @@
     UIGraphicsEndImageContext();
     return imageNew;
 }
-
- static void MBEReleaseDataCallback(void *info, const void *data, size_t size)
- {
- free((void *)data);
- }
- 
- - (UIImage *)initWithMTLTexture:(id<MTLTexture>)texture mirrored:(BOOL)mirrored {
- //    NSAssert([texture pixelFormat] == MTLPixelFormatRGBA8Unorm, @"Pixel format of texture must be MTLPixelFormatBGRA8Unorm to create UIImage");
- 
- CGSize imageSize = CGSizeMake([texture width], [texture height]);
- size_t imageByteCount = imageSize.width * imageSize.height * 4;
- void *imageBytes = malloc(imageByteCount);
- NSUInteger bytesPerRow = imageSize.width * 4;
- MTLRegion region = MTLRegionMake2D(0, 0, imageSize.width, imageSize.height);
- [texture getBytes:imageBytes bytesPerRow:bytesPerRow fromRegion:region mipmapLevel:0];
- CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, imageBytes, imageByteCount, MBEReleaseDataCallback);
- int bitsPerComponent = 8;
- int bitsPerPixel = 32;
- CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
- CGBitmapInfo bitmapInfo = kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little;
- CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
- CGImageRef imageRef = CGImageCreate(imageSize.width,
- imageSize.height,
- bitsPerComponent,
- bitsPerPixel,
- bytesPerRow,
- colorSpaceRef,
- bitmapInfo,
- provider,
- NULL,
- false,
- renderingIntent);
- 
- UIImageOrientation orientation = mirrored ? UIImageOrientationUpMirrored : UIImageOrientationUp;
- self = [UIImage imageWithCGImage:imageRef scale:1.0 orientation:orientation];
- 
- CFRelease(provider);
- CFRelease(colorSpaceRef);
- CFRelease(imageRef);
- return self;
- }
 
 +(NSArray *)filterNames
 {

@@ -13,7 +13,7 @@
 
 +(void)start;
 +(void)log;
-+(void)logWithString:(NSString *)string;
++(void)log:(NSString *)string,...;
 
 +(instancetype)timerNamed:(NSString *)str;
 +(instancetype)timerStarted;

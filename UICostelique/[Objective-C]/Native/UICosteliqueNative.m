@@ -617,7 +617,7 @@ DEBUG_INTERFACE void runDebug() {
             return [[self topViewController] preferredStatusBarStyle];
         }
     }
-    return UIStatusBarStyleDefault;
+    return [super preferredStatusBarStyle];
 }
 
 -(BOOL)disableAutorotation {

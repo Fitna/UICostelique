@@ -9,6 +9,8 @@
 #import "AKTimer.h"
 #import "UICosteliqueFunctions.h"
 
+static char *const AKTimer_format = "  TIMER: ";
+
 @interface AKTimer ()
 @property NSDate *start;
 @property NSMutableDictionary <NSString *, NSNumber *> *values;
@@ -21,20 +23,25 @@
 @implementation AKTimer {
     dispatch_queue_t _que;
 }
-static NSDate *startDate;
+static CFTimeInterval startDate;
 +(void)start {
-    startDate = [NSDate date];
+    startDate = CFAbsoluteTimeGetCurrent();
 }
 
 +(void)log {
-    float time = [startDate timeIntervalSinceNow];
-    NSLog(@"TIMER: %f", -time);
-    [self start];
+    [self log: nil];
 }
 
-+(void)logWithString:(NSString *)string {
-    float time = [startDate timeIntervalSinceNow];
-    NSLog(@"%@: %f", string, -time);
++(void)log:(NSString *)string, ... {
+    CFTimeInterval time = CFAbsoluteTimeGetCurrent() - startDate;
+    printf("%s%f", AKTimer_format, time);
+    if (string) {
+        va_list args;
+        va_start(args, string);
+        printf(", %s ", [[NSString alloc] initWithFormat:string arguments:args].UTF8String);
+        va_end(args);
+    }
+    printf(" \n");
     [self start];
 }
 

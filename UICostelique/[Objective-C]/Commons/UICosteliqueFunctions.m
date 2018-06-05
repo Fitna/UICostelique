@@ -424,6 +424,7 @@ BOOL hasConnectivity() {
             }
         }
     }
+    CFRelease(reachability);
     return NO;
 }
 

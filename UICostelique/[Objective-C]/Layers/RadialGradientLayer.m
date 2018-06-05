@@ -74,7 +74,6 @@
     CGContextSetBlendMode(ctx, kCGBlendModeHue);
     CGPoint gradCenter = CGPointMake(self.bounds.size.width*_gradientCenter.x, self.bounds.size.height*_gradientCenter.y);
     float gradRadius = MIN(self.bounds.size.width , self.bounds.size.height);
-    
     CGContextDrawRadialGradient (ctx, gradient, gradCenter, 0, gradCenter, gradRadius, kCGGradientDrawsAfterEndLocation);
     CGGradientRelease(gradient);
 }

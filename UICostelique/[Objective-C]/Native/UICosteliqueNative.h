@@ -11,7 +11,6 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnullability-completeness"
-@protocol MTLTexture;
 
 @interface SKProduct (LocalizedPrice)
 -(NSString *)localizedPrice;

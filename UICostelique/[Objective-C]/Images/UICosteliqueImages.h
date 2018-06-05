@@ -10,16 +10,13 @@
 #import <CoreImage/CoreImage.h>
 #import <UIKit/UIDevice.h>
 
-
 @interface UIImage (Costelique)
-- (UIImage *)initWithMTLTexture:(id<MTLTexture>)texture mirrored:(BOOL)mirrored;
 - (UIImage *)crop:(CGRect)rect;
 - (UIImage *)resize:(CGSize)size;
 - (UIImage *)resize:(CGSize)size withScale:(CGFloat)scale;
 - (UIImage *)scaleAndRotateImage;
 - (NSString *)MD5HexDigest;
 @end
-
 
 
 @interface CIImage (Costelique)
