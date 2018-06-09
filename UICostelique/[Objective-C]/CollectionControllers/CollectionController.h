@@ -15,7 +15,7 @@
 
 
 @interface CollectionController : NSObject <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
-@property (weak) id<UICollectionViewDelegate> delegate;
+@property (weak) id<UICollectionViewDelegateFlowLayout> delegate;
 @property NSInteger cellsInRow;
 @property float aspectRatio;
 @property IBOutlet UICollectionView *collection;

@@ -22,9 +22,13 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
+        return [self.delegate collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
+    }
+    
     if ([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
         UICollectionViewFlowLayout *layout = (id)collectionViewLayout;
-        CGFloat spacing = layout.minimumLineSpacing;
+        CGFloat spacing = layout.minimumInteritemSpacing;
         CGFloat count = self.cellsInRow;
         CGFloat width = (self.collection.bounds.size.width - spacing * (count - 1))/count;
         CGFloat height = width * self.aspectRatio;

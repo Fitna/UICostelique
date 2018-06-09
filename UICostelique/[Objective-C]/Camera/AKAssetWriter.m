@@ -24,15 +24,20 @@
     if (error) {
         NSLog(@"%@", error);
     }
-    
-//    AVOutputSettingsAssistant *assistant = [AVOutputSettingsAssistant outputSettingsAssistantWithPreset:AVOutputSettingsPreset960x540];
     NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   AVVideoScalingModeResizeAspect, AVVideoScalingModeKey,
+                                   [NSNumber numberWithInt:size.width], AVVideoWidthKey,
+                                   [NSNumber numberWithInt:size.height], AVVideoHeightKey,
+                                   nil];
+    if (@available(iOS 11.0, *)) {
+//    AVOutputSettingsAssistant *assistant = [AVOutputSettingsAssistant outputSettingsAssistantWithPreset:AVOutputSettingsPreset960x540];
+        videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                                    AVVideoCodecTypeH264, AVVideoCodecKey,
                                    AVVideoScalingModeResizeAspect, AVVideoScalingModeKey,
                                    [NSNumber numberWithInt:size.width], AVVideoWidthKey,
                                    [NSNumber numberWithInt:size.height], AVVideoHeightKey,
                                    nil];
-
+    }
     AVAssetWriterInput *writerInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:videoSettings];
     writerInput.naturalSize = CGSizeMake(540,940);
     writerInput.transform = CGAffineTransformMakeScale(-1, 1);

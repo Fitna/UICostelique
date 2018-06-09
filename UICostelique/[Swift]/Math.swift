@@ -23,3 +23,12 @@ prefix func √ (number:CGFloat) -> CGFloat {
 }
 
 
+@discardableResult postfix func ++(number: inout Int) -> Int {
+    number += 1
+    return (number - 1)
+}
+
+@discardableResult prefix func ++(number: inout Int) -> Int {
+    number += 1
+    return number
+}

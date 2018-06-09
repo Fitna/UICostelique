@@ -24,16 +24,16 @@
         _gradientColorCenter = .5;
         _increase = YES;
         _gradientAnimated = NO;
-        static const float defaultPoints[3] = {0., .3, 1.};
-        memcpy(_controlPoints, defaultPoints, sizeof(defaultPoints));
+        memcpy(_controlPoints, (float[]){0., .3, 1.}, sizeof(float) * 3);
         //        float *p = _controlPoints;
-        //        *p++ = 0;
+        //        *p++ = 0.;
         //        *p++ = .3;
         //        *p++ = 1.;
         
     }
     return self;
 }
+
 -(void)setGradientAnimated:(bool)gradientAnimated
 {
     _gradientAnimated = gradientAnimated;
@@ -41,10 +41,12 @@
     if (gradientAnimated)
         _timer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(gradientAnimation) userInfo:nil repeats:YES];
 }
+
 -(bool)gradientAnimated
 {
     return _gradientAnimated;
 }
+
 -(void)gradientAnimation
 {
     if (_increase)

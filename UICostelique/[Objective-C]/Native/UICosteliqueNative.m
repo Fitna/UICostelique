@@ -39,10 +39,6 @@ DEBUG_INTERFACE void runDebug() {
 }
 #endif
 
-
-#define let id
-#define var id
-@import Metal;
 @implementation SKProduct (LocalizedPrice)
 -(NSString *)localizedPrice {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -52,6 +48,7 @@ DEBUG_INTERFACE void runDebug() {
     return [numberFormatter stringFromNumber: self.price];
 }
 @end
+
 @implementation UIColor (Costelique)
 +(instancetype)r:(float)r g:(float)g b:(float)b
 {
@@ -204,6 +201,18 @@ DEBUG_INTERFACE void runDebug() {
 }
 @end
 
+UIStatusBarStyle ak_UIStatusBarStyle_getPlistValue() {
+    static UIStatusBarStyle plistValue = UIStatusBarStyleDefault;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *contentStyle = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UIStatusBarStyle"];
+        if ([contentStyle isEqualToString:@"UIStatusBarStyleLightContent"]) {
+            plistValue = UIStatusBarStyleLightContent;
+        }
+    });
+    return plistValue;
+}
+
 #pragma mark -
 @implementation UIViewController (Costelique)
 -(__kindof UIResponder *)firstResponder {
@@ -212,10 +221,7 @@ DEBUG_INTERFACE void runDebug() {
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
-    if (self.navigationController) {
-        return [self.navigationController preferredStatusBarStyle];
-    }
-    return UIStatusBarStyleDefault;
+    return ak_UIStatusBarStyle_getPlistValue();
 }
 
 -(void)showAlert:(NSString *)title withMessage:(NSString *)text
@@ -614,10 +620,10 @@ DEBUG_INTERFACE void runDebug() {
         IMP imp1 = method_getImplementation(class_getInstanceMethod([contr class], sel));
         IMP imp2 = method_getImplementation(class_getInstanceMethod([contr superclass], sel));
         if (imp1 != imp2) {
-            return [[self topViewController] preferredStatusBarStyle];
+            return [contr preferredStatusBarStyle];
         }
     }
-    return [super preferredStatusBarStyle];
+    return ak_UIStatusBarStyle_getPlistValue();
 }
 
 -(BOOL)disableAutorotation {
