@@ -7,7 +7,6 @@
 //
 
 #import "AKTimer.h"
-#import "UICosteliqueFunctions.h"
 
 static char *const AKTimer_format = "  TIMER: ";
 
@@ -139,20 +138,20 @@ static CFTimeInterval startDate;
     
     dispatch_sync(_que, ^{
         dispatch_sync(printQueue, ^{
-            NSLog(@" ");
-            NSLog(@" <TIMER name = \"%@\">", self->_name);
+            printf("\n");
+            printf("<TIMER name = \"%s\">\n", self->_name.UTF8String);
             float sum = 0;
             float iterations = iter;//[[_iterations valueForKey:key] floatValue];;
             for (NSString *key in self->_keys) {
                 float value = [(NSNumber *)[self->_values valueForKey:key] floatValue];
                 sum += value;
-                NSLog(@"    %f - %@ ",value/iterations,key);
+                printf("    %f - %s\n",value/iterations,key.UTF8String);
             }
             if (self->_keys.count > 1){
-                NSLog(@"   --------------");
-                NSLog(@"   All: %f (%d iterations)", (sum / (float)iter), (int)iter);
+                printf("   --------------\n");
+                printf("   All: %f (%d iterations)\n", (sum / (float)iter), (int)iter);
             }
-            NSLog(@" </TIMER>");
+            printf("</TIMER>\n");
         });
     });
     

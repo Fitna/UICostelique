@@ -9,7 +9,7 @@
 import UIKit.UIFont
 
 extension UIFont {
-    class func printAllFontsNames(){
+    class func printAll(){
         let fonts = UIFont.familyNames.sorted { (s1, s2) -> Bool in return
             s1 > s2
         }

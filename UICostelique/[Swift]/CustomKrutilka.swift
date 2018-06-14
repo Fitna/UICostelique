@@ -50,9 +50,7 @@ class CustomKrutilka: UIView {
         replicatorLayer.instanceDelay = parameters.opaciryAnimation / Double(parameters.count)
         let trans = CATransform3DMakeRotation(2 * CGFloat.pi/CGFloat(parameters.count), 0, 0, 1)
         replicatorLayer.instanceTransform = trans
-
 //
-
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             self.replicatorLayer.add(self.rotationAnimation(), forKey: "krutilka.1")
