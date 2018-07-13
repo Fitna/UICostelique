@@ -6,6 +6,7 @@
 //  Copyright © 2018 Олег. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "ShaderOperation.h"
 #import "MetalContext.h"
 

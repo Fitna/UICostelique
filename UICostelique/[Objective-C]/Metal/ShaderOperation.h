@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AKImage.h"
 #import <Metal/Metal.h>
 #import "Texture&Images.h"
 

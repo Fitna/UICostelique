@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+#if COSTELIQUE
 class CustomKrutilka: UIView {
     let replicatorLayer = CAReplicatorLayer()
     var fillColor: UIColor = UIColor.init(widthHexString: "6F26B1")
@@ -138,5 +138,5 @@ class CustomKrutilka: UIView {
         animation.isRemovedOnCompletion = false
         return animation
     }
-
 }
+#endif

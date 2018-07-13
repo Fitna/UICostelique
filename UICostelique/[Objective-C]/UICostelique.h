@@ -6,6 +6,8 @@
 //  Copyright © 2016 AV. All rights reserved.
 //
 
+#define COSTELIUQUE
+
 #import "UICosteliqueDefines.h"
 #import "UICosteliqueFunctions.h"
 #import "UICosteliqueNative.h"
