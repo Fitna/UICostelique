@@ -21,6 +21,6 @@
 -(void)reset;
 -(void)log:(NSString *)str;
 -(void)print;
--(void)printAfterIterations:(NSInteger)iterations;
+-(bool)printAfterIterations:(NSInteger)iterations;
 @end
 

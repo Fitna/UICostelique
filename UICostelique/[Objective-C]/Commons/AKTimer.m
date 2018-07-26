@@ -11,7 +11,7 @@
 static char *const AKTimer_format = "  TIMER: ";
 
 @interface AKTimer ()
-@property NSDate *start;
+@property CFAbsoluteTime start;
 @property NSMutableDictionary <NSString *, NSNumber *> *values;
 //@property NSMutableDictionary <NSString *, NSNumber *> *iterations;
 @property NSMutableArray <NSString *> *keys;
@@ -20,9 +20,9 @@ static char *const AKTimer_format = "  TIMER: ";
 @end
 
 @implementation AKTimer {
-    dispatch_queue_t _que;
+
 }
-static CFTimeInterval startDate;
+CFTimeInterval startDate;
 +(void)start {
     startDate = CFAbsoluteTimeGetCurrent();
 }
@@ -80,6 +80,7 @@ static CFTimeInterval startDate;
     self = [self init];
     if (self) {
         _name = name;
+        _start = CFAbsoluteTimeGetCurrent();
     }
     return self;
 }
@@ -92,28 +93,20 @@ static CFTimeInterval startDate;
         //        _iterations = [[NSMutableDictionary alloc] init];
         _printIterations = 0;
         _clearOnPrint = YES;
-        
-        _que = dispatch_queue_create("AKTimer", DISPATCH_QUEUE_CONCURRENT);
-        dispatch_set_target_queue(_que, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
     }
     return self;
 }
 
 -(void)log:(NSString *)str {
-    NSDate *logDate = [NSDate date];
-    __block float f;
-    dispatch_sync(_que, ^{
-        f = [self->_values valueForKey:str].floatValue;
-    });
-    
-    f += [logDate timeIntervalSinceDate:self.start];
-    
-    dispatch_barrier_sync(_que, ^{
-        [self->_values setValue:@(f) forKey:str];
-        if (![self->_keys containsObject:str]) {
-            [self->_keys addObject:str];
-        }
-    });
+    CFAbsoluteTime t = CFAbsoluteTimeGetCurrent();
+    double f = [self->_values valueForKey:str].doubleValue;
+    f += t - _start;
+
+    [self->_values setValue:@(f) forKey:str];
+    if (![self->_keys containsObject:str]) {
+        [self->_keys addObject:str];
+    }
+
     [self reset];
 }
 
@@ -121,13 +114,10 @@ static CFTimeInterval startDate;
     [self printAfterIterations:1];
 }
 
--(void)printAfterIterations:(NSInteger)iterations {
-    __block long iter;
-    dispatch_barrier_sync(_que, ^{
-        iter = ++self->_printIterations;
-    });
+-(bool)printAfterIterations:(NSInteger)iterations {
+    long iter = ++self->_printIterations;
     if (iter % iterations) {
-        return;
+        return false;
     }
     
     static dispatch_queue_t printQueue;
@@ -136,36 +126,33 @@ static CFTimeInterval startDate;
         printQueue = dispatch_queue_create("lock", DISPATCH_QUEUE_SERIAL);
     });
     
-    dispatch_sync(_que, ^{
-        dispatch_sync(printQueue, ^{
-            printf("\n");
-            printf("<TIMER name = \"%s\">\n", self->_name.UTF8String);
-            float sum = 0;
-            float iterations = iter;//[[_iterations valueForKey:key] floatValue];;
-            for (NSString *key in self->_keys) {
-                float value = [(NSNumber *)[self->_values valueForKey:key] floatValue];
-                sum += value;
-                printf("    %f - %s\n",value/iterations,key.UTF8String);
-            }
-            if (self->_keys.count > 1){
-                printf("   --------------\n");
-                printf("   All: %f (%d iterations)\n", (sum / (float)iter), (int)iter);
-            }
-            printf("</TIMER>\n");
-        });
+    dispatch_sync(printQueue, ^{
+        printf("\n");
+        printf("<TIMER name = \"%s\">\n", self->_name.UTF8String);
+        double sum = 0;
+        float iterations = iter;//[[_iterations valueForKey:key] floatValue];;
+        for (NSString *key in self->_keys) {
+            double value = [(NSNumber *)[self->_values valueForKey:key] doubleValue];
+            sum += value;
+            printf("    %f - %s\n",value/(self->_clearOnPrint ? iterations : 1),key.UTF8String);
+        }
+        if (self->_keys.count > 1){
+            printf("   --------------\n");
+            printf("   All: %f (%d iterations)\n", sum / (float)(self->_clearOnPrint ? iterations : 1), (int)iter);
+        }
+        printf("</TIMER>\n");
     });
     
     if (self.clearOnPrint) {
-        dispatch_barrier_sync(_que, ^{
-            self->_keys = [[NSMutableArray alloc] init];
-            self->_values = [[NSMutableDictionary alloc] init];
-            self->_printIterations = 0;
-        });
+        self->_keys = [[NSMutableArray alloc] init];
+        self->_values = [[NSMutableDictionary alloc] init];
+        self->_printIterations = 0;
     }
+    return true;
 }
 
 -(void)reset {
-    self.start = [NSDate date];
+    self->_start = CFAbsoluteTimeGetCurrent();
 }
 
 @end

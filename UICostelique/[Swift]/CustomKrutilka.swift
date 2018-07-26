@@ -7,11 +7,14 @@
 //
 
 import UIKit
-#if COSTELIQUE
+
+
 class CustomKrutilka: UIView {
+
+
     let replicatorLayer = CAReplicatorLayer()
-    var fillColor: UIColor = UIColor.init(widthHexString: "6F26B1")
-    var strokeColor: UIColor = UIColor.init(widthHexString: "6F26B1")
+    var fillColor: UIColor = UIColor.initWithHex( "6F26B1")
+    var strokeColor: UIColor = UIColor.initWithHex( "6F26B1")
 
     override func awakeFromNib() {
         self.layer.addSublayer(replicatorLayer)
@@ -33,7 +36,9 @@ class CustomKrutilka: UIView {
         self.replicatorLayer.frame = self.layer.bounds
         self.layer.contentsScale = UIScreen.main.scale
         replicatorLayer.contentsScale = UIScreen.main.scale
-        replicatorLayer.removeAllSublayers()
+        while replicatorLayer.sublayers?.count ?? 0 > 0 {
+            replicatorLayer.sublayers?.first!.removeFromSuperlayer()
+        }
 
         let circleLayer = CAShapeLayer()
         circleLayer.contentsScale = UIScreen.main.scale
@@ -59,25 +64,24 @@ class CustomKrutilka: UIView {
         CATransaction.commit()
         self.replicatorLayer.add(scaleAnimation1(), forKey: "krutilka.2")
 
-        dispatch_after_main(5) {
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
             let animation = CAKeyframeAnimation(keyPath: "fillColor")
             animation.values = [self.fillColor.cgColor,
-                                UIColor(widthHexString: "B73ABB").cgColor,
-                                UIColor(widthHexString: "FF54B3").cgColor,
-                                UIColor(widthHexString: "EE34F4").cgColor,
+                                UIColor.initWithHex( "B73ABB").cgColor,
+                                UIColor.initWithHex( "FF54B3").cgColor,
+                                UIColor.initWithHex(  "EE34F4").cgColor,
                                 self.fillColor.cgColor,
                                 self.fillColor.cgColor,
-                                UIColor(widthHexString: "373DC6").cgColor,
-                                UIColor(widthHexString: "548AFF").cgColor,
-                                UIColor(widthHexString: "2F37F1").cgColor,
+                                UIColor.initWithHex( "373DC6").cgColor,
+                                UIColor.initWithHex( "548AFF").cgColor,
+                                UIColor.initWithHex( "2F37F1").cgColor,
                                 self.fillColor.cgColor
             ]
             animation.duration = 30
             animation.repeatCount = 100*100*100
-//            animation.autoreverses = true
+            //            animation.autoreverses = true
             circleLayer.add(animation, forKey: "asdlhbaslidasbk")
-        }
+        })
     }
 
     func segmentPath(withRadius radius: CGFloat) -> UIBezierPath {
@@ -139,4 +143,23 @@ class CustomKrutilka: UIView {
         return animation
     }
 }
-#endif
+
+fileprivate extension UIColor {
+    class func initWithHex(_ string: String) -> UIColor {
+        var trimmed = string.trimmingCharacters(in: CharacterSet(charactersIn: "#"))
+        if trimmed.count == 6 {
+            trimmed += "FF"
+        }
+        var rgb: UInt32 = 0
+        guard Scanner(string: trimmed).scanHexInt32(&rgb) else {
+            return UIColor.clear
+        }
+
+        let r = CGFloat((rgb & 0xFF000000) >> 24) / 255.0
+        let g = CGFloat((rgb & 0x00FF0000) >> 16) / 255.0
+        let b = CGFloat((rgb & 0x0000FF00) >> 8) / 255.0
+        let a = CGFloat(rgb & 0x000000FF) / 255.0
+
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
+}
