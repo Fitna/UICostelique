@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSLayoutConstraint *_Nullable)constraint:(NSLayoutAttribute)attr;
 -(void)addScaleAnimation;
 - (UIViewController *)parentViewController;
--(void)setShadow:(UIColor *)color withOffset:(CGSize)size;
+-(void)setShadow:(UIColor *)color withOffset:(CGSize)size radius:(CGFloat)radius;
 @end
 
 NS_ASSUME_NONNULL_END

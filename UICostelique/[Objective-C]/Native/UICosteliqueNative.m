@@ -109,7 +109,7 @@ DEBUG_INTERFACE void runDebug() {
 }
 
 -(UIImage *)thumbImage {
-    return [self thumbImageForState:UIControlStateNormal];
+    return [self thumbImageForState: UIControlStateNormal];
 }
 
 @end

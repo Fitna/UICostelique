@@ -38,6 +38,10 @@ extension String {
     }
 }
 
+func LocalizedString(inTable table:String?, forKey key:String) -> String {
+    return Bundle.main.localizedString(forKey: key, value: nil, table: table)
+}
+
 protocol RegularExpressionMatchable {
     func match(pattern: String, options: NSRegularExpression.Options) throws -> Bool
 }

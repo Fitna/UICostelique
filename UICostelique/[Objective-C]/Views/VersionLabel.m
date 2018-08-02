@@ -9,7 +9,6 @@
 #import "VersionLabel.h"
 
 @implementation VersionLabel : UILabel
-
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
@@ -18,5 +17,15 @@
     }
     return self;
 }
+@end
 
+
+@implementation AppNameLabel : UILabel
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        NSString *name = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+        self.text = name;
+    }
+    return self;
+}
 @end

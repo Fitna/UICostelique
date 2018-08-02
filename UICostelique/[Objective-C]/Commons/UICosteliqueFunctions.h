@@ -61,6 +61,8 @@ void dispatch_sync_main_wdl(dispatch_block_t block);
 void dispatch_async_main(dispatch_block_t block);
 void dispatch_after_main(float after, dispatch_block_t block);
 
+void dispatch_once_(NSString *token, dispatch_block_t block);
+
 void repeat_periodically(float period, void(^block)(bool *souldStop));
 
 id staticVariableWithID(NSString *identifier, id(^initializer)(void));

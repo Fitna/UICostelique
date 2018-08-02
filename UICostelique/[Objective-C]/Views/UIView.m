@@ -236,10 +236,10 @@ void *realHiddenKey = &realHiddenKey;
     }
 }
 
--(void)setShadow:(UIColor *)color withOffset:(CGSize)size {
+-(void)setShadow:(UIColor *)color withOffset:(CGSize)size radius:(CGFloat)radius {
     self.layer.shadowColor = color.CGColor;
     self.layer.shadowOffset = size;
-    self.layer.shadowRadius = MAX(size.width, size.height);
+    self.layer.shadowRadius = radius;
     self.layer.shadowOpacity = 1;
 }
 

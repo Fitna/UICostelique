@@ -366,6 +366,11 @@ double realRand()
     return ((double)sum)/((double)UINT_FAST32_MAX);
 }
 
+void dispatch_once_(NSString *token, dispatch_block_t block) {
+    static dispatch_once_t onceToken[100];
+    dispatch_once(&onceToken[0], block);
+}
+
 BOOL IPAD(void) {
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
 }

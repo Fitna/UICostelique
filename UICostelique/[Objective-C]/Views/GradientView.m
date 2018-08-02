@@ -25,19 +25,16 @@
     _gradient = [CAGradientLayer layer];
     if (_colorTop && _colorBottom) {
         _gradient.colors = @[(__bridge id)_colorTop.CGColor, (__bridge id)_colorBottom.CGColor];
-//        CGFloat r1, g1, b1, a1, r2, g2, b2, a2;
-//        [_colorTop getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
-//        [_colorBottom getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
-//        UIColor *middleColor = [UIColor colorWithRed:(r1+r2)/2.0 green:(g1+g2)/2.0 blue:(b1+b2)/2.0 alpha:(a1+a2)/2.0];
-//        _gradient.colors = @[(__bridge id)_colorTop.CGColor, (__bridge id)middleColor.CGColor, (__bridge id)_colorBottom.CGColor];
-//        _gradient.locations = @[@(0),@(0.3),@(1)];
     }
     [self.layer addSublayer:_gradient];
     _gradient.zPosition = 0 - 1;
 }
 
 -(void)layoutSubviews {
+    [CATransaction begin];
+    [CATransaction setDisableActions: true];
     _gradient.frame = self.bounds;
+    [CATransaction commit];
 }
 
 -(void)setColorTop:(UIColor *)colorTop {

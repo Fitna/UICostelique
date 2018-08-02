@@ -10,3 +10,6 @@
 
 @interface VersionLabel : UILabel
 @end
+
+@interface AppNameLabel : UILabel
+@end

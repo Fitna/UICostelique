@@ -19,6 +19,7 @@
 #import "ViewFromXib.h"
 #import "UIView.h"
 #import "GradientView.h"
+#import "RadialGradientView.h"
 #import "ScreenLockView.h"
 #import "ViewWithImageMask.h"
 
@@ -28,8 +29,6 @@
 #import "Geometry.h"
 #import "AKAnimator.h"
 #import "VersionLabel.h"
-
-#import "RadialGradientLayer.h"
 
 #import "AKCameraManager.h"
 #import "AKAssetWriter.h"

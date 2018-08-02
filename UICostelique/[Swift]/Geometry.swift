@@ -10,6 +10,10 @@ import UIKit.UIGeometry
 import CoreGraphics.CGGeometry
 
 extension CGSize {
+    init(_ x:CGFloat,_ y:CGFloat) {
+        self.init(width: x, height: y)
+    }
+
     func size(withWidth:CGFloat) -> CGSize {
         return CGSize.init(width: withWidth, height:self.height)
     }
@@ -65,14 +69,24 @@ extension CGSize {
 }
 
 extension CGPoint {
+    init(_ x:CGFloat,_ y:CGFloat) {
+        self.init(x: x, y: y)
+    }
     func distance(to point:CGPoint) -> CGFloat {
         let x : Double = Double(point.x - self.x)
         let y : Double = Double(point.y - self.y)
         return CGFloat(sqrt(x * x) + sqrt(y * y))
     }
+    func round() -> CGPoint {
+        return CGPoint(CGFloat(Darwin.round(Double(x))), CGFloat(Darwin.round(Double(y))))
+    }
 }
 
 extension CGRect {
+
+    init(_ x:CGFloat,_ y:CGFloat,_ w:CGFloat,_ h:CGFloat) {
+        self.init(x: x, y: y, width: w, height: h);
+    }
     func shift(_ shift: CGFloat) -> CGRect {
         return CGRect(x: self.origin.x + shift,
                       y: self.origin.y + shift,

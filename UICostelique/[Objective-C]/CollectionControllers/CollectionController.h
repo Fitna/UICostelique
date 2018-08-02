@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol CollectionControllerCell <NSObject> //must be implemented for cells
 -(void)setRepresentedObject:(id)object;
 -(void)setSelection:(BOOL)selected;
@@ -15,9 +17,13 @@
 
 
 @interface CollectionController : NSObject <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
-@property (weak) id<UICollectionViewDelegateFlowLayout> delegate;
+@property (nonatomic, nullable, weak) id<UICollectionViewDelegateFlowLayout> delegate;
+@property NSString *cellIdentifier; //default is "cell"
 @property NSInteger cellsInRow;
 @property float aspectRatio;
-@property IBOutlet UICollectionView *collection;
-@property NSArray *representedArray;
+@property (nonatomic, nullable) IBOutlet UICollectionView *collection;
+@property (nonatomic, nullable) NSArray *representedArray;
+@property bool unselectable; //false by default
 @end
+
+NS_ASSUME_NONNULL_END

@@ -9,16 +9,30 @@
 #import "CollectionController.h"
 
 @interface CollectionController() 
-
+@property NSArray <NSIndexPath *> *indexPathsForSelectedItems;
 @end
 
 @implementation CollectionController
 -(instancetype)init {
     if (self = [super init]) {
+        _cellIdentifier = @"cell";
         _cellsInRow = 3;
         _aspectRatio = UIScreen.mainScreen.bounds.size.height / UIScreen.mainScreen.bounds.size.width;
+        _unselectable = false;
     }
     return self;
+}
+
+-(void)setCollection:(UICollectionView *)collection {
+    collection.delegate = self;
+    collection.dataSource = self;
+    _collection = collection;
+    [collection reloadData];
+}
+
+-(void)setRepresentedArray:(NSArray *)representedArray {
+    _representedArray = representedArray;
+    [_collection reloadData];
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -37,12 +51,17 @@
     return CGSizeMake(100, 100);
 }
 
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    self.indexPathsForSelectedItems = nil;
+    return 1;
+}
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.representedArray.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *dequeuedCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    UICollectionViewCell *dequeuedCell = [collectionView dequeueReusableCellWithReuseIdentifier:_cellIdentifier forIndexPath:indexPath];
     if ([dequeuedCell conformsToProtocol: @protocol(CollectionControllerCell)]) {
         UICollectionViewCell<CollectionControllerCell> *cell = (id)dequeuedCell;
         [cell setSelection:[collectionView.indexPathsForSelectedItems containsObject:indexPath]];
@@ -53,12 +72,20 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.unselectable && [self.indexPathsForSelectedItems containsObject:indexPath]) {
+        [self.collection deselectItemAtIndexPath:indexPath animated:false];
+        [self collectionView:collectionView didDeselectItemAtIndexPath: indexPath];
+        return;
+    }
     UICollectionViewCell *collectionCell = [collectionView cellForItemAtIndexPath:indexPath];
     if ([collectionCell conformsToProtocol:@protocol(CollectionControllerCell)]) {
         UICollectionViewCell<CollectionControllerCell> *cell = (id)collectionCell;
         [cell setSelection:true];
     }
-    [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]) {
+        [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+    }
+    self.indexPathsForSelectedItems = self.collection.indexPathsForSelectedItems;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,7 +94,16 @@
         UICollectionViewCell<CollectionControllerCell> *cell = (id)collectionCell;
         [cell setSelection:false];
     }
-    [self.delegate collectionView:collectionView didDeselectItemAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(collectionView:didDeselectItemAtIndexPath:)]) {
+        [self.delegate collectionView:collectionView didDeselectItemAtIndexPath:indexPath];
+    }
+    self.indexPathsForSelectedItems = self.collection.indexPathsForSelectedItems;
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector: @selector(scrollViewDidScroll:)]) {
+        [self.delegate scrollViewDidScroll: scrollView];
+    }
+
+}
 @end
