@@ -1,0 +1,763 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C52F313211D7F0D00A87A80 /* UICostelique.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F311211D7F0D00A87A80 /* UICostelique.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F42B211D7FE600A87A80 /* GlareButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3CF211D7FE600A87A80 /* GlareButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F42C211D7FE600A87A80 /* GlareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3D0211D7FE600A87A80 /* GlareButton.m */; };
+		7C52F42D211D7FE600A87A80 /* RoundedGradientButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3D1211D7FE600A87A80 /* RoundedGradientButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F42E211D7FE600A87A80 /* RoundedGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3D2211D7FE600A87A80 /* RoundedGradientButton.m */; };
+		7C52F42F211D7FE600A87A80 /* AKAssetWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3D4211D7FE600A87A80 /* AKAssetWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F430211D7FE600A87A80 /* AKAssetWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3D5211D7FE600A87A80 /* AKAssetWriter.m */; };
+		7C52F431211D7FE600A87A80 /* AKCameraManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3D6211D7FE600A87A80 /* AKCameraManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F432211D7FE600A87A80 /* AKCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3D7211D7FE600A87A80 /* AKCameraManager.m */; };
+		7C52F433211D7FE600A87A80 /* CollectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3D9211D7FE600A87A80 /* CollectionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F434211D7FE600A87A80 /* CollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3DA211D7FE600A87A80 /* CollectionController.m */; };
+		7C52F435211D7FE600A87A80 /* AKTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3DC211D7FE600A87A80 /* AKTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F436211D7FE600A87A80 /* AKTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3DD211D7FE600A87A80 /* AKTimer.m */; };
+		7C52F437211D7FE600A87A80 /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3DE211D7FE600A87A80 /* Geometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F438211D7FE600A87A80 /* Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3DF211D7FE600A87A80 /* Geometry.m */; };
+		7C52F439211D7FE600A87A80 /* MusicController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3E0211D7FE600A87A80 /* MusicController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F43A211D7FE600A87A80 /* MusicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3E1211D7FE600A87A80 /* MusicController.m */; };
+		7C52F43B211D7FE600A87A80 /* ShareingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3E2211D7FE600A87A80 /* ShareingController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F43C211D7FE600A87A80 /* ShareingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3E3211D7FE600A87A80 /* ShareingController.m */; };
+		7C52F43D211D7FE600A87A80 /* ThreadFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3E4211D7FE600A87A80 /* ThreadFlow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F43E211D7FE600A87A80 /* ThreadFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3E5211D7FE600A87A80 /* ThreadFlow.m */; };
+		7C52F43F211D7FE600A87A80 /* UICosteliqueDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3E6211D7FE600A87A80 /* UICosteliqueDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F440211D7FE600A87A80 /* UICosteliqueFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3E7211D7FE600A87A80 /* UICosteliqueFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F441211D7FE600A87A80 /* UICosteliqueFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3E8211D7FE600A87A80 /* UICosteliqueFunctions.m */; };
+		7C52F442211D7FE600A87A80 /* UICosteliqueImages.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3EA211D7FE600A87A80 /* UICosteliqueImages.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F443211D7FE600A87A80 /* UICosteliqueImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3EB211D7FE600A87A80 /* UICosteliqueImages.m */; };
+		7C52F444211D7FE600A87A80 /* RadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3ED211D7FE600A87A80 /* RadialGradientLayer.h */; };
+		7C52F445211D7FE600A87A80 /* RadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3EE211D7FE600A87A80 /* RadialGradientLayer.m */; };
+		7C52F446211D7FE600A87A80 /* AKShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3F1211D7FE600A87A80 /* AKShaders.metal */; };
+		7C52F447211D7FE600A87A80 /* SOAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3F2211D7FE600A87A80 /* SOAdd.h */; };
+		7C52F448211D7FE600A87A80 /* SOAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3F3211D7FE600A87A80 /* SOAdd.m */; };
+		7C52F449211D7FE600A87A80 /* SOCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3F4211D7FE600A87A80 /* SOCopy.h */; };
+		7C52F44A211D7FE600A87A80 /* SOCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3F5211D7FE600A87A80 /* SOCopy.m */; };
+		7C52F44B211D7FE600A87A80 /* Texture&Images.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3F6211D7FE600A87A80 /* Texture&Images.h */; };
+		7C52F44C211D7FE600A87A80 /* Texture&Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3F7211D7FE600A87A80 /* Texture&Images.m */; };
+		7C52F44D211D7FE600A87A80 /* MetalContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3F8211D7FE600A87A80 /* MetalContext.h */; };
+		7C52F44E211D7FE600A87A80 /* MetalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3F9211D7FE600A87A80 /* MetalContext.m */; };
+		7C52F44F211D7FE600A87A80 /* ShaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3FA211D7FE600A87A80 /* ShaderOperation.h */; };
+		7C52F450211D7FE600A87A80 /* ShaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3FB211D7FE600A87A80 /* ShaderOperation.m */; };
+		7C52F451211D7FE600A87A80 /* UICosteliqueNative.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3FD211D7FE600A87A80 /* UICosteliqueNative.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F452211D7FE600A87A80 /* UICosteliqueNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3FE211D7FE600A87A80 /* UICosteliqueNative.m */; };
+		7C52F453211D7FE600A87A80 /* UICosteliqueScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3FF211D7FE600A87A80 /* UICosteliqueScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F454211D7FE600A87A80 /* UICosteliqueScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F400211D7FE600A87A80 /* UICosteliqueScene.m */; };
+		7C52F455211D7FE600A87A80 /* UICosteliqueMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F401211D7FE600A87A80 /* UICosteliqueMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F456211D7FE600A87A80 /* AKAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F403211D7FE600A87A80 /* AKAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F457211D7FE600A87A80 /* AKAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F404211D7FE600A87A80 /* AKAnimator.m */; };
+		7C52F458211D7FE600A87A80 /* GradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F405211D7FE600A87A80 /* GradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F459211D7FE600A87A80 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F406211D7FE600A87A80 /* GradientView.m */; };
+		7C52F45A211D7FE600A87A80 /* OnePixelView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F407211D7FE600A87A80 /* OnePixelView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F45B211D7FE600A87A80 /* OnePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F408211D7FE600A87A80 /* OnePixelView.m */; };
+		7C52F45C211D7FE600A87A80 /* RadialGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F409211D7FE600A87A80 /* RadialGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F45D211D7FE600A87A80 /* RadialGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F40A211D7FE600A87A80 /* RadialGradientView.m */; };
+		7C52F45E211D7FE600A87A80 /* ScreenLockView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F40B211D7FE600A87A80 /* ScreenLockView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F45F211D7FE600A87A80 /* ScreenLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F40C211D7FE600A87A80 /* ScreenLockView.m */; };
+		7C52F460211D7FE600A87A80 /* UIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F40D211D7FE600A87A80 /* UIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F461211D7FE600A87A80 /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F40E211D7FE600A87A80 /* UIView.m */; };
+		7C52F462211D7FE600A87A80 /* VersionLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F40F211D7FE600A87A80 /* VersionLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F463211D7FE600A87A80 /* VersionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F410211D7FE600A87A80 /* VersionLabel.m */; };
+		7C52F464211D7FE600A87A80 /* ViewFromXib.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F411211D7FE600A87A80 /* ViewFromXib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F465211D7FE600A87A80 /* ViewFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F412211D7FE600A87A80 /* ViewFromXib.m */; };
+		7C52F466211D7FE600A87A80 /* ViewWithImageMask.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F413211D7FE600A87A80 /* ViewWithImageMask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C52F467211D7FE600A87A80 /* ViewWithImageMask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F414211D7FE600A87A80 /* ViewWithImageMask.m */; };
+		7C52F468211D7FE600A87A80 /* CustomKrutilka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F416211D7FE600A87A80 /* CustomKrutilka.swift */; };
+		7C52F469211D7FE600A87A80 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F417211D7FE600A87A80 /* Device.swift */; };
+		7C52F46A211D7FE600A87A80 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F418211D7FE600A87A80 /* DispatchQueue.swift */; };
+		7C52F46B211D7FE600A87A80 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F419211D7FE600A87A80 /* EnumCollection.swift */; };
+		7C52F46C211D7FE600A87A80 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F41A211D7FE600A87A80 /* Geometry.swift */; };
+		7C52F46D211D7FE600A87A80 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F41B211D7FE600A87A80 /* Math.swift */; };
+		7C52F46E211D7FE600A87A80 /* MemoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F41C211D7FE600A87A80 /* MemoryLayout.swift */; };
+		7C52F46F211D7FE600A87A80 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F41D211D7FE600A87A80 /* NotificationName.swift */; };
+		7C52F470211D7FE600A87A80 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F41E211D7FE600A87A80 /* String.swift */; };
+		7C52F471211D7FE600A87A80 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F41F211D7FE600A87A80 /* UIColor.swift */; };
+		7C52F472211D7FE600A87A80 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F420211D7FE600A87A80 /* UIFont.swift */; };
+		7C52F473211D7FE600A87A80 /* BezierCostelique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F422211D7FE600A87A80 /* BezierCostelique.swift */; };
+		7C52F474211D7FE600A87A80 /* CMSampleBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F423211D7FE600A87A80 /* CMSampleBuffer.swift */; };
+		7C52F475211D7FE600A87A80 /* LabelWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F424211D7FE600A87A80 /* LabelWithBackground.swift */; };
+		7C52F476211D7FE600A87A80 /* SceneKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F425211D7FE600A87A80 /* SceneKit.swift */; };
+		7C52F477211D7FE600A87A80 /* ScrollViewWithHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F426211D7FE600A87A80 /* ScrollViewWithHeader.swift */; };
+		7C52F478211D7FE600A87A80 /* SnapshotAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F427211D7FE600A87A80 /* SnapshotAnimator.swift */; };
+		7C52F479211D7FE600A87A80 /* TransparentNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F428211D7FE600A87A80 /* TransparentNavigationController.swift */; };
+		7C52F47A211D7FE600A87A80 /* UILocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F429211D7FE600A87A80 /* UILocalizable.swift */; };
+		7C52F47B211D7FE600A87A80 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F42A211D7FE600A87A80 /* VisualEffectView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7C52F30E211D7F0D00A87A80 /* UICostelique.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICostelique.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C52F311211D7F0D00A87A80 /* UICostelique.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICostelique.h; sourceTree = "<group>"; };
+		7C52F312211D7F0D00A87A80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C52F3CF211D7FE600A87A80 /* GlareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlareButton.h; sourceTree = "<group>"; };
+		7C52F3D0211D7FE600A87A80 /* GlareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlareButton.m; sourceTree = "<group>"; };
+		7C52F3D1211D7FE600A87A80 /* RoundedGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedGradientButton.h; sourceTree = "<group>"; };
+		7C52F3D2211D7FE600A87A80 /* RoundedGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedGradientButton.m; sourceTree = "<group>"; };
+		7C52F3D4211D7FE600A87A80 /* AKAssetWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAssetWriter.h; sourceTree = "<group>"; };
+		7C52F3D5211D7FE600A87A80 /* AKAssetWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAssetWriter.m; sourceTree = "<group>"; };
+		7C52F3D6211D7FE600A87A80 /* AKCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCameraManager.h; sourceTree = "<group>"; };
+		7C52F3D7211D7FE600A87A80 /* AKCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCameraManager.m; sourceTree = "<group>"; };
+		7C52F3D9211D7FE600A87A80 /* CollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionController.h; sourceTree = "<group>"; };
+		7C52F3DA211D7FE600A87A80 /* CollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionController.m; sourceTree = "<group>"; };
+		7C52F3DC211D7FE600A87A80 /* AKTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTimer.h; sourceTree = "<group>"; };
+		7C52F3DD211D7FE600A87A80 /* AKTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTimer.m; sourceTree = "<group>"; };
+		7C52F3DE211D7FE600A87A80 /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		7C52F3DF211D7FE600A87A80 /* Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geometry.m; sourceTree = "<group>"; };
+		7C52F3E0211D7FE600A87A80 /* MusicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicController.h; sourceTree = "<group>"; };
+		7C52F3E1211D7FE600A87A80 /* MusicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicController.m; sourceTree = "<group>"; };
+		7C52F3E2211D7FE600A87A80 /* ShareingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareingController.h; sourceTree = "<group>"; };
+		7C52F3E3211D7FE600A87A80 /* ShareingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareingController.m; sourceTree = "<group>"; };
+		7C52F3E4211D7FE600A87A80 /* ThreadFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadFlow.h; sourceTree = "<group>"; };
+		7C52F3E5211D7FE600A87A80 /* ThreadFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadFlow.m; sourceTree = "<group>"; };
+		7C52F3E6211D7FE600A87A80 /* UICosteliqueDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICosteliqueDefines.h; sourceTree = "<group>"; };
+		7C52F3E7211D7FE600A87A80 /* UICosteliqueFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICosteliqueFunctions.h; sourceTree = "<group>"; };
+		7C52F3E8211D7FE600A87A80 /* UICosteliqueFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICosteliqueFunctions.m; sourceTree = "<group>"; };
+		7C52F3EA211D7FE600A87A80 /* UICosteliqueImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICosteliqueImages.h; sourceTree = "<group>"; };
+		7C52F3EB211D7FE600A87A80 /* UICosteliqueImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICosteliqueImages.m; sourceTree = "<group>"; };
+		7C52F3ED211D7FE600A87A80 /* RadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadialGradientLayer.h; sourceTree = "<group>"; };
+		7C52F3EE211D7FE600A87A80 /* RadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadialGradientLayer.m; sourceTree = "<group>"; };
+		7C52F3F1211D7FE600A87A80 /* AKShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AKShaders.metal; sourceTree = "<group>"; };
+		7C52F3F2211D7FE600A87A80 /* SOAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAdd.h; sourceTree = "<group>"; };
+		7C52F3F3211D7FE600A87A80 /* SOAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAdd.m; sourceTree = "<group>"; };
+		7C52F3F4211D7FE600A87A80 /* SOCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCopy.h; sourceTree = "<group>"; };
+		7C52F3F5211D7FE600A87A80 /* SOCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCopy.m; sourceTree = "<group>"; };
+		7C52F3F6211D7FE600A87A80 /* Texture&Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Texture&Images.h"; sourceTree = "<group>"; };
+		7C52F3F7211D7FE600A87A80 /* Texture&Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Texture&Images.m"; sourceTree = "<group>"; };
+		7C52F3F8211D7FE600A87A80 /* MetalContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalContext.h; sourceTree = "<group>"; };
+		7C52F3F9211D7FE600A87A80 /* MetalContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalContext.m; sourceTree = "<group>"; };
+		7C52F3FA211D7FE600A87A80 /* ShaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderOperation.h; sourceTree = "<group>"; };
+		7C52F3FB211D7FE600A87A80 /* ShaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderOperation.m; sourceTree = "<group>"; };
+		7C52F3FD211D7FE600A87A80 /* UICosteliqueNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICosteliqueNative.h; sourceTree = "<group>"; };
+		7C52F3FE211D7FE600A87A80 /* UICosteliqueNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICosteliqueNative.m; sourceTree = "<group>"; };
+		7C52F3FF211D7FE600A87A80 /* UICosteliqueScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICosteliqueScene.h; sourceTree = "<group>"; };
+		7C52F400211D7FE600A87A80 /* UICosteliqueScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICosteliqueScene.m; sourceTree = "<group>"; };
+		7C52F401211D7FE600A87A80 /* UICosteliqueMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICosteliqueMain.h; sourceTree = "<group>"; };
+		7C52F403211D7FE600A87A80 /* AKAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAnimator.h; sourceTree = "<group>"; };
+		7C52F404211D7FE600A87A80 /* AKAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAnimator.m; sourceTree = "<group>"; };
+		7C52F405211D7FE600A87A80 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		7C52F406211D7FE600A87A80 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		7C52F407211D7FE600A87A80 /* OnePixelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePixelView.h; sourceTree = "<group>"; };
+		7C52F408211D7FE600A87A80 /* OnePixelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePixelView.m; sourceTree = "<group>"; };
+		7C52F409211D7FE600A87A80 /* RadialGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadialGradientView.h; sourceTree = "<group>"; };
+		7C52F40A211D7FE600A87A80 /* RadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadialGradientView.m; sourceTree = "<group>"; };
+		7C52F40B211D7FE600A87A80 /* ScreenLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenLockView.h; sourceTree = "<group>"; };
+		7C52F40C211D7FE600A87A80 /* ScreenLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenLockView.m; sourceTree = "<group>"; };
+		7C52F40D211D7FE600A87A80 /* UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView.h; sourceTree = "<group>"; };
+		7C52F40E211D7FE600A87A80 /* UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView.m; sourceTree = "<group>"; };
+		7C52F40F211D7FE600A87A80 /* VersionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionLabel.h; sourceTree = "<group>"; };
+		7C52F410211D7FE600A87A80 /* VersionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionLabel.m; sourceTree = "<group>"; };
+		7C52F411211D7FE600A87A80 /* ViewFromXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFromXib.h; sourceTree = "<group>"; };
+		7C52F412211D7FE600A87A80 /* ViewFromXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFromXib.m; sourceTree = "<group>"; };
+		7C52F413211D7FE600A87A80 /* ViewWithImageMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewWithImageMask.h; sourceTree = "<group>"; };
+		7C52F414211D7FE600A87A80 /* ViewWithImageMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewWithImageMask.m; sourceTree = "<group>"; };
+		7C52F416211D7FE600A87A80 /* CustomKrutilka.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKrutilka.swift; sourceTree = "<group>"; };
+		7C52F417211D7FE600A87A80 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		7C52F418211D7FE600A87A80 /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
+		7C52F419211D7FE600A87A80 /* EnumCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
+		7C52F41A211D7FE600A87A80 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		7C52F41B211D7FE600A87A80 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		7C52F41C211D7FE600A87A80 /* MemoryLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryLayout.swift; sourceTree = "<group>"; };
+		7C52F41D211D7FE600A87A80 /* NotificationName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		7C52F41E211D7FE600A87A80 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		7C52F41F211D7FE600A87A80 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		7C52F420211D7FE600A87A80 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		7C52F422211D7FE600A87A80 /* BezierCostelique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierCostelique.swift; sourceTree = "<group>"; };
+		7C52F423211D7FE600A87A80 /* CMSampleBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMSampleBuffer.swift; sourceTree = "<group>"; };
+		7C52F424211D7FE600A87A80 /* LabelWithBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithBackground.swift; sourceTree = "<group>"; };
+		7C52F425211D7FE600A87A80 /* SceneKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneKit.swift; sourceTree = "<group>"; };
+		7C52F426211D7FE600A87A80 /* ScrollViewWithHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewWithHeader.swift; sourceTree = "<group>"; };
+		7C52F427211D7FE600A87A80 /* SnapshotAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotAnimator.swift; sourceTree = "<group>"; };
+		7C52F428211D7FE600A87A80 /* TransparentNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentNavigationController.swift; sourceTree = "<group>"; };
+		7C52F429211D7FE600A87A80 /* UILocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILocalizable.swift; sourceTree = "<group>"; };
+		7C52F42A211D7FE600A87A80 /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C52F30A211D7F0D00A87A80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C52F304211D7F0D00A87A80 = {
+			isa = PBXGroup;
+			children = (
+				7C52F310211D7F0D00A87A80 /* UICostelique */,
+				7C52F30F211D7F0D00A87A80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7C52F30F211D7F0D00A87A80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F30E211D7F0D00A87A80 /* UICostelique.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C52F310211D7F0D00A87A80 /* UICostelique */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3CD211D7FE600A87A80 /* [Objective-C] */,
+				7C52F415211D7FE600A87A80 /* [Swift] */,
+				7C52F311211D7F0D00A87A80 /* UICostelique.h */,
+				7C52F312211D7F0D00A87A80 /* Info.plist */,
+			);
+			path = UICostelique;
+			sourceTree = "<group>";
+		};
+		7C52F3CD211D7FE600A87A80 /* [Objective-C] */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3CE211D7FE600A87A80 /* Buttons */,
+				7C52F3D3211D7FE600A87A80 /* Camera */,
+				7C52F3D8211D7FE600A87A80 /* CollectionControllers */,
+				7C52F3DB211D7FE600A87A80 /* Commons */,
+				7C52F3E9211D7FE600A87A80 /* Images */,
+				7C52F3EC211D7FE600A87A80 /* Layers */,
+				7C52F3EF211D7FE600A87A80 /* Metal */,
+				7C52F3FC211D7FE600A87A80 /* Native */,
+				7C52F401211D7FE600A87A80 /* UICosteliqueMain.h */,
+				7C52F402211D7FE600A87A80 /* Views */,
+			);
+			path = "[Objective-C]";
+			sourceTree = "<group>";
+		};
+		7C52F3CE211D7FE600A87A80 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3CF211D7FE600A87A80 /* GlareButton.h */,
+				7C52F3D0211D7FE600A87A80 /* GlareButton.m */,
+				7C52F3D1211D7FE600A87A80 /* RoundedGradientButton.h */,
+				7C52F3D2211D7FE600A87A80 /* RoundedGradientButton.m */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		7C52F3D3211D7FE600A87A80 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3D4211D7FE600A87A80 /* AKAssetWriter.h */,
+				7C52F3D5211D7FE600A87A80 /* AKAssetWriter.m */,
+				7C52F3D6211D7FE600A87A80 /* AKCameraManager.h */,
+				7C52F3D7211D7FE600A87A80 /* AKCameraManager.m */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		7C52F3D8211D7FE600A87A80 /* CollectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3D9211D7FE600A87A80 /* CollectionController.h */,
+				7C52F3DA211D7FE600A87A80 /* CollectionController.m */,
+			);
+			path = CollectionControllers;
+			sourceTree = "<group>";
+		};
+		7C52F3DB211D7FE600A87A80 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3DC211D7FE600A87A80 /* AKTimer.h */,
+				7C52F3DD211D7FE600A87A80 /* AKTimer.m */,
+				7C52F3DE211D7FE600A87A80 /* Geometry.h */,
+				7C52F3DF211D7FE600A87A80 /* Geometry.m */,
+				7C52F3E0211D7FE600A87A80 /* MusicController.h */,
+				7C52F3E1211D7FE600A87A80 /* MusicController.m */,
+				7C52F3E2211D7FE600A87A80 /* ShareingController.h */,
+				7C52F3E3211D7FE600A87A80 /* ShareingController.m */,
+				7C52F3E4211D7FE600A87A80 /* ThreadFlow.h */,
+				7C52F3E5211D7FE600A87A80 /* ThreadFlow.m */,
+				7C52F3E6211D7FE600A87A80 /* UICosteliqueDefines.h */,
+				7C52F3E7211D7FE600A87A80 /* UICosteliqueFunctions.h */,
+				7C52F3E8211D7FE600A87A80 /* UICosteliqueFunctions.m */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		7C52F3E9211D7FE600A87A80 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3EA211D7FE600A87A80 /* UICosteliqueImages.h */,
+				7C52F3EB211D7FE600A87A80 /* UICosteliqueImages.m */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		7C52F3EC211D7FE600A87A80 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3ED211D7FE600A87A80 /* RadialGradientLayer.h */,
+				7C52F3EE211D7FE600A87A80 /* RadialGradientLayer.m */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		7C52F3EF211D7FE600A87A80 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3F0211D7FE600A87A80 /* Common Operations */,
+				7C52F3F8211D7FE600A87A80 /* MetalContext.h */,
+				7C52F3F9211D7FE600A87A80 /* MetalContext.m */,
+				7C52F3FA211D7FE600A87A80 /* ShaderOperation.h */,
+				7C52F3FB211D7FE600A87A80 /* ShaderOperation.m */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		7C52F3F0211D7FE600A87A80 /* Common Operations */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3F1211D7FE600A87A80 /* AKShaders.metal */,
+				7C52F3F2211D7FE600A87A80 /* SOAdd.h */,
+				7C52F3F3211D7FE600A87A80 /* SOAdd.m */,
+				7C52F3F4211D7FE600A87A80 /* SOCopy.h */,
+				7C52F3F5211D7FE600A87A80 /* SOCopy.m */,
+				7C52F3F6211D7FE600A87A80 /* Texture&Images.h */,
+				7C52F3F7211D7FE600A87A80 /* Texture&Images.m */,
+			);
+			path = "Common Operations";
+			sourceTree = "<group>";
+		};
+		7C52F3FC211D7FE600A87A80 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F3FD211D7FE600A87A80 /* UICosteliqueNative.h */,
+				7C52F3FE211D7FE600A87A80 /* UICosteliqueNative.m */,
+				7C52F3FF211D7FE600A87A80 /* UICosteliqueScene.h */,
+				7C52F400211D7FE600A87A80 /* UICosteliqueScene.m */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
+		7C52F402211D7FE600A87A80 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F403211D7FE600A87A80 /* AKAnimator.h */,
+				7C52F404211D7FE600A87A80 /* AKAnimator.m */,
+				7C52F405211D7FE600A87A80 /* GradientView.h */,
+				7C52F406211D7FE600A87A80 /* GradientView.m */,
+				7C52F407211D7FE600A87A80 /* OnePixelView.h */,
+				7C52F408211D7FE600A87A80 /* OnePixelView.m */,
+				7C52F409211D7FE600A87A80 /* RadialGradientView.h */,
+				7C52F40A211D7FE600A87A80 /* RadialGradientView.m */,
+				7C52F40B211D7FE600A87A80 /* ScreenLockView.h */,
+				7C52F40C211D7FE600A87A80 /* ScreenLockView.m */,
+				7C52F40D211D7FE600A87A80 /* UIView.h */,
+				7C52F40E211D7FE600A87A80 /* UIView.m */,
+				7C52F40F211D7FE600A87A80 /* VersionLabel.h */,
+				7C52F410211D7FE600A87A80 /* VersionLabel.m */,
+				7C52F411211D7FE600A87A80 /* ViewFromXib.h */,
+				7C52F412211D7FE600A87A80 /* ViewFromXib.m */,
+				7C52F413211D7FE600A87A80 /* ViewWithImageMask.h */,
+				7C52F414211D7FE600A87A80 /* ViewWithImageMask.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7C52F415211D7FE600A87A80 /* [Swift] */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F416211D7FE600A87A80 /* CustomKrutilka.swift */,
+				7C52F417211D7FE600A87A80 /* Device.swift */,
+				7C52F418211D7FE600A87A80 /* DispatchQueue.swift */,
+				7C52F419211D7FE600A87A80 /* EnumCollection.swift */,
+				7C52F41A211D7FE600A87A80 /* Geometry.swift */,
+				7C52F41B211D7FE600A87A80 /* Math.swift */,
+				7C52F41C211D7FE600A87A80 /* MemoryLayout.swift */,
+				7C52F41D211D7FE600A87A80 /* NotificationName.swift */,
+				7C52F41E211D7FE600A87A80 /* String.swift */,
+				7C52F41F211D7FE600A87A80 /* UIColor.swift */,
+				7C52F420211D7FE600A87A80 /* UIFont.swift */,
+				7C52F421211D7FE600A87A80 /* Uncommon */,
+				7C52F42A211D7FE600A87A80 /* VisualEffectView.swift */,
+			);
+			path = "[Swift]";
+			sourceTree = "<group>";
+		};
+		7C52F421211D7FE600A87A80 /* Uncommon */ = {
+			isa = PBXGroup;
+			children = (
+				7C52F422211D7FE600A87A80 /* BezierCostelique.swift */,
+				7C52F423211D7FE600A87A80 /* CMSampleBuffer.swift */,
+				7C52F424211D7FE600A87A80 /* LabelWithBackground.swift */,
+				7C52F425211D7FE600A87A80 /* SceneKit.swift */,
+				7C52F426211D7FE600A87A80 /* ScrollViewWithHeader.swift */,
+				7C52F427211D7FE600A87A80 /* SnapshotAnimator.swift */,
+				7C52F428211D7FE600A87A80 /* TransparentNavigationController.swift */,
+				7C52F429211D7FE600A87A80 /* UILocalizable.swift */,
+			);
+			path = Uncommon;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7C52F30B211D7F0D00A87A80 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C52F455211D7FE600A87A80 /* UICosteliqueMain.h in Headers */,
+				7C52F451211D7FE600A87A80 /* UICosteliqueNative.h in Headers */,
+				7C52F456211D7FE600A87A80 /* AKAnimator.h in Headers */,
+				7C52F45E211D7FE600A87A80 /* ScreenLockView.h in Headers */,
+				7C52F440211D7FE600A87A80 /* UICosteliqueFunctions.h in Headers */,
+				7C52F460211D7FE600A87A80 /* UIView.h in Headers */,
+				7C52F439211D7FE600A87A80 /* MusicController.h in Headers */,
+				7C52F442211D7FE600A87A80 /* UICosteliqueImages.h in Headers */,
+				7C52F453211D7FE600A87A80 /* UICosteliqueScene.h in Headers */,
+				7C52F433211D7FE600A87A80 /* CollectionController.h in Headers */,
+				7C52F42B211D7FE600A87A80 /* GlareButton.h in Headers */,
+				7C52F466211D7FE600A87A80 /* ViewWithImageMask.h in Headers */,
+				7C52F42D211D7FE600A87A80 /* RoundedGradientButton.h in Headers */,
+				7C52F431211D7FE600A87A80 /* AKCameraManager.h in Headers */,
+				7C52F43F211D7FE600A87A80 /* UICosteliqueDefines.h in Headers */,
+				7C52F43B211D7FE600A87A80 /* ShareingController.h in Headers */,
+				7C52F43D211D7FE600A87A80 /* ThreadFlow.h in Headers */,
+				7C52F45C211D7FE600A87A80 /* RadialGradientView.h in Headers */,
+				7C52F437211D7FE600A87A80 /* Geometry.h in Headers */,
+				7C52F458211D7FE600A87A80 /* GradientView.h in Headers */,
+				7C52F42F211D7FE600A87A80 /* AKAssetWriter.h in Headers */,
+				7C52F45A211D7FE600A87A80 /* OnePixelView.h in Headers */,
+				7C52F464211D7FE600A87A80 /* ViewFromXib.h in Headers */,
+				7C52F462211D7FE600A87A80 /* VersionLabel.h in Headers */,
+				7C52F435211D7FE600A87A80 /* AKTimer.h in Headers */,
+				7C52F313211D7F0D00A87A80 /* UICostelique.h in Headers */,
+				7C52F449211D7FE600A87A80 /* SOCopy.h in Headers */,
+				7C52F444211D7FE600A87A80 /* RadialGradientLayer.h in Headers */,
+				7C52F44F211D7FE600A87A80 /* ShaderOperation.h in Headers */,
+				7C52F44D211D7FE600A87A80 /* MetalContext.h in Headers */,
+				7C52F44B211D7FE600A87A80 /* Texture&Images.h in Headers */,
+				7C52F447211D7FE600A87A80 /* SOAdd.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7C52F30D211D7F0D00A87A80 /* UICostelique */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C52F316211D7F0D00A87A80 /* Build configuration list for PBXNativeTarget "UICostelique" */;
+			buildPhases = (
+				7C52F309211D7F0D00A87A80 /* Sources */,
+				7C52F30A211D7F0D00A87A80 /* Frameworks */,
+				7C52F30B211D7F0D00A87A80 /* Headers */,
+				7C52F30C211D7F0D00A87A80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UICostelique;
+			productName = UICostelique;
+			productReference = 7C52F30E211D7F0D00A87A80 /* UICostelique.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C52F305211D7F0D00A87A80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Олег";
+				TargetAttributes = {
+					7C52F30D211D7F0D00A87A80 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 7C52F308211D7F0D00A87A80 /* Build configuration list for PBXProject "UICostelique" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7C52F304211D7F0D00A87A80;
+			productRefGroup = 7C52F30F211D7F0D00A87A80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C52F30D211D7F0D00A87A80 /* UICostelique */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C52F30C211D7F0D00A87A80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C52F309211D7F0D00A87A80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C52F44A211D7FE600A87A80 /* SOCopy.m in Sources */,
+				7C52F478211D7FE600A87A80 /* SnapshotAnimator.swift in Sources */,
+				7C52F438211D7FE600A87A80 /* Geometry.m in Sources */,
+				7C52F477211D7FE600A87A80 /* ScrollViewWithHeader.swift in Sources */,
+				7C52F445211D7FE600A87A80 /* RadialGradientLayer.m in Sources */,
+				7C52F476211D7FE600A87A80 /* SceneKit.swift in Sources */,
+				7C52F446211D7FE600A87A80 /* AKShaders.metal in Sources */,
+				7C52F457211D7FE600A87A80 /* AKAnimator.m in Sources */,
+				7C52F43C211D7FE600A87A80 /* ShareingController.m in Sources */,
+				7C52F46B211D7FE600A87A80 /* EnumCollection.swift in Sources */,
+				7C52F46E211D7FE600A87A80 /* MemoryLayout.swift in Sources */,
+				7C52F475211D7FE600A87A80 /* LabelWithBackground.swift in Sources */,
+				7C52F43A211D7FE600A87A80 /* MusicController.m in Sources */,
+				7C52F432211D7FE600A87A80 /* AKCameraManager.m in Sources */,
+				7C52F436211D7FE600A87A80 /* AKTimer.m in Sources */,
+				7C52F450211D7FE600A87A80 /* ShaderOperation.m in Sources */,
+				7C52F46D211D7FE600A87A80 /* Math.swift in Sources */,
+				7C52F443211D7FE600A87A80 /* UICosteliqueImages.m in Sources */,
+				7C52F463211D7FE600A87A80 /* VersionLabel.m in Sources */,
+				7C52F441211D7FE600A87A80 /* UICosteliqueFunctions.m in Sources */,
+				7C52F44C211D7FE600A87A80 /* Texture&Images.m in Sources */,
+				7C52F47A211D7FE600A87A80 /* UILocalizable.swift in Sources */,
+				7C52F448211D7FE600A87A80 /* SOAdd.m in Sources */,
+				7C52F479211D7FE600A87A80 /* TransparentNavigationController.swift in Sources */,
+				7C52F472211D7FE600A87A80 /* UIFont.swift in Sources */,
+				7C52F465211D7FE600A87A80 /* ViewFromXib.m in Sources */,
+				7C52F46F211D7FE600A87A80 /* NotificationName.swift in Sources */,
+				7C52F434211D7FE600A87A80 /* CollectionController.m in Sources */,
+				7C52F452211D7FE600A87A80 /* UICosteliqueNative.m in Sources */,
+				7C52F467211D7FE600A87A80 /* ViewWithImageMask.m in Sources */,
+				7C52F45B211D7FE600A87A80 /* OnePixelView.m in Sources */,
+				7C52F44E211D7FE600A87A80 /* MetalContext.m in Sources */,
+				7C52F430211D7FE600A87A80 /* AKAssetWriter.m in Sources */,
+				7C52F43E211D7FE600A87A80 /* ThreadFlow.m in Sources */,
+				7C52F470211D7FE600A87A80 /* String.swift in Sources */,
+				7C52F47B211D7FE600A87A80 /* VisualEffectView.swift in Sources */,
+				7C52F46A211D7FE600A87A80 /* DispatchQueue.swift in Sources */,
+				7C52F471211D7FE600A87A80 /* UIColor.swift in Sources */,
+				7C52F469211D7FE600A87A80 /* Device.swift in Sources */,
+				7C52F461211D7FE600A87A80 /* UIView.m in Sources */,
+				7C52F45D211D7FE600A87A80 /* RadialGradientView.m in Sources */,
+				7C52F473211D7FE600A87A80 /* BezierCostelique.swift in Sources */,
+				7C52F474211D7FE600A87A80 /* CMSampleBuffer.swift in Sources */,
+				7C52F42C211D7FE600A87A80 /* GlareButton.m in Sources */,
+				7C52F46C211D7FE600A87A80 /* Geometry.swift in Sources */,
+				7C52F459211D7FE600A87A80 /* GradientView.m in Sources */,
+				7C52F45F211D7FE600A87A80 /* ScreenLockView.m in Sources */,
+				7C52F454211D7FE600A87A80 /* UICosteliqueScene.m in Sources */,
+				7C52F42E211D7FE600A87A80 /* RoundedGradientButton.m in Sources */,
+				7C52F468211D7FE600A87A80 /* CustomKrutilka.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7C52F314211D7F0D00A87A80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7C52F315211D7F0D00A87A80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7C52F317211D7F0D00A87A80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3686T462U3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UICostelique/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.am.UICostelique;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7C52F318211D7F0D00A87A80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3686T462U3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UICostelique/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.am.UICostelique;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C52F308211D7F0D00A87A80 /* Build configuration list for PBXProject "UICostelique" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C52F314211D7F0D00A87A80 /* Debug */,
+				7C52F315211D7F0D00A87A80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C52F316211D7F0D00A87A80 /* Build configuration list for PBXNativeTarget "UICostelique" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C52F317211D7F0D00A87A80 /* Debug */,
+				7C52F318211D7F0D00A87A80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C52F305211D7F0D00A87A80 /* Project object */;
+}
