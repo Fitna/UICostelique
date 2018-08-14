@@ -75,9 +75,27 @@ public extension CGSize {
     func scale(_ scale: CGFloat) -> CGSize {
         return CGSize(width: self.width * scale, height: self.height * scale)
     }
+
+
+    //Math
+    static func * (left: CGSize, right:CGFloat) -> CGSize {
+        return CGSize(width:left.width * right, height: left.height * right)
+    }
+
+    static func / (left: CGSize, right:CGFloat) -> CGSize {
+        return CGSize(width:left.width / right, height: left.height / right)
+    }
+
+    static func - (left: CGSize, right: CGSize) -> CGSize {
+        return CGSize(width: left.width - right.width, height: left.height - right.height)
+    }
+
+    static func + (left: CGSize, right: CGSize) -> CGSize {
+        return CGSize(width: left.width + right.width, height: left.height + right.height)
+    }
 }
 
-extension CGPoint {
+public extension CGPoint {
     init(_ x:CGFloat,_ y:CGFloat) {
         self.init(x: x, y: y)
     }
@@ -89,9 +107,26 @@ extension CGPoint {
     func round() -> CGPoint {
         return CGPoint(CGFloat(Darwin.round(Double(x))), CGFloat(Darwin.round(Double(y))))
     }
+
+    //Math
+    static func - (left: CGPoint, right: CGPoint) -> CGPoint {
+        return CGPoint(x: left.x - right.x, y: left.y - right.y)
+    }
+
+    static func + (left: CGPoint, right: CGPoint) -> CGPoint {
+        return CGPoint(x: left.x + right.x, y: left.y + right.y)
+    }
+
+    static func * (left: CGPoint, right: CGFloat) -> CGPoint {
+        return CGPoint(x: left.x * right, y: left.y * right)
+    }
+
+    static func / (left: CGPoint, right: CGFloat) -> CGPoint {
+        return CGPoint(x: left.x / right, y: left.y / right)
+    }
 }
 
-extension CGRect {
+public extension CGRect {
 
     init(_ x:CGFloat,_ y:CGFloat,_ w:CGFloat,_ h:CGFloat) {
         self.init(x: x, y: y, width: w, height: h);
@@ -124,38 +159,6 @@ extension CGRect {
     }
 }
 
-//CGSize
-func * (left: CGSize, right:CGFloat) -> CGSize {
-    return CGSize(width:left.width * right, height: left.height * right)
-}
 
-func / (left: CGSize, right:CGFloat) -> CGSize {
-    return CGSize(width:left.width / right, height: left.height / right)
-}
-
-func - (left: CGSize, right: CGSize) -> CGSize {
-    return CGSize(width: left.width - right.width, height: left.height - right.height)
-}
-
-func + (left: CGSize, right: CGSize) -> CGSize {
-    return CGSize(width: left.width + right.width, height: left.height + right.height)
-}
-
-//CGPoint
-func - (left: CGPoint, right: CGPoint) -> CGPoint {
-    return CGPoint(x: left.x - right.x, y: left.y - right.y)
-}
-
-func + (left: CGPoint, right: CGPoint) -> CGPoint {
-    return CGPoint(x: left.x + right.x, y: left.y + right.y)
-}
-
-func * (left: CGPoint, right: CGFloat) -> CGPoint {
-    return CGPoint(x: left.x * right, y: left.y * right)
-}
-
-func / (left: CGPoint, right: CGFloat) -> CGPoint {
-    return CGPoint(x: left.x / right, y: left.y / right)
-}
 
 

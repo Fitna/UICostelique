@@ -42,32 +42,35 @@
     float scale = [[UIScreen mainScreen] scale];
     CGContextRef context = CGBitmapContextCreate(NULL, self.bounds.size.width * scale, self.bounds.size.height * scale,
                                                  8, 0, rgbColorSpace, kCGImageAlphaPremultipliedFirst);
-    CGContextScaleCTM(context, scale, scale);
-    CGContextSetRGBFillColor(context, 0, 0, 0, 1);
-    CGContextFillRect(context, self.bounds);
+    if (context != NULL) {
+        CGContextScaleCTM(context, scale, scale);
+        CGContextSetRGBFillColor(context, 0, 0, 0, 1);
+        CGContextFillRect(context, self.bounds);
 
 
-    CGRect imageBounds = self.maskRect;
-    imageBounds.origin.y = self.bounds.size.height - imageBounds.origin.y - imageBounds.size.height;
-    CGContextSaveGState(context);
-    CGContextClipToMask(context, imageBounds, self.maskImage.CGImage);
-    CGContextClearRect(context, imageBounds);
-    CGContextRestoreGState(context);
+        CGRect imageBounds = self.maskRect;
+        imageBounds.origin.y = self.bounds.size.height - imageBounds.origin.y - imageBounds.size.height;
+        CGContextSaveGState(context);
+        CGContextClipToMask(context, imageBounds, self.maskImage.CGImage);
+        CGContextClearRect(context, imageBounds);
+        CGContextRestoreGState(context);
 
-    CGImageRef ret = CGBitmapContextCreateImage(context);
+        CGImageRef ret = CGBitmapContextCreateImage(context);
 
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    _maskLayer.frame = self.bounds;
-    [CATransaction commit];
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        _maskLayer.frame = self.bounds;
+        [CATransaction commit];
 
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    _maskLayer.contents = (__bridge id)(ret);
-    [CATransaction commit];
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        _maskLayer.contents = (__bridge id)(ret);
+        [CATransaction commit];
 
-    CGImageRelease(ret);
-    CGContextRelease(context);
+        CGImageRelease(ret);
+        CGContextRelease(context);
+    }
+    CGColorSpaceRelease(rgbColorSpace);
 }
 
 @end

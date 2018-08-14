@@ -7,6 +7,7 @@
 //
 
 #import "AKAssetWriter.h"
+#import "AKLog.h"
 
 @interface AKAssetWriter ()
 @property NSURL *videoOutputURL;
@@ -21,7 +22,7 @@
     NSError *error;
     AVAssetWriter *writer = [[AVAssetWriter alloc] initWithURL:url fileType:AVFileTypeQuickTimeMovie error:&error];
     if (error) {
-        NSLog(@"%@", error);
+        AKLog(@"%@", error);
     }
     NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                                    AVVideoScalingModeResizeAspect, AVVideoScalingModeKey,

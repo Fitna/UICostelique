@@ -13,6 +13,7 @@
 @end
 
 @implementation CollectionController
+
 -(instancetype)init {
     if (self = [super init]) {
         _cellIdentifier = @"cell";
@@ -23,20 +24,16 @@
     return self;
 }
 
--(void)setCollection:(UICollectionView *)collection {
-    _indexPathsForSelectedItems = nil;
-    collection.delegate = self;
-    collection.dataSource = self;
-    _collection = collection;
-    [collection reloadData];
+-(__kindof UICollectionViewCell *__nullable)cellForItem:(id)item {
+    NSUInteger index = [_representedArray indexOfObject:item];
+    if (index == NSNotFound) {
+        return nil;
+    }
+    NSIndexPath *path = [NSIndexPath indexPathForItem:index inSection:0];
+    return [_collection cellForItemAtIndexPath: path];
 }
 
--(void)setRepresentedArray:(NSArray *)representedArray {
-    _indexPathsForSelectedItems = nil;
-    _representedArray = representedArray;
-    [_collection reloadData];
-}
-
+#pragma mark Collection delegate
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([_delegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
         return [_delegate collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
@@ -108,7 +105,21 @@
     if ([_delegate respondsToSelector: @selector(scrollViewDidScroll:)]) {
         [_delegate scrollViewDidScroll: scrollView];
     }
+}
 
+#pragma mark setters
+-(void)setCollection:(UICollectionView *)collection {
+    _indexPathsForSelectedItems = nil;
+    collection.delegate = self;
+    collection.dataSource = self;
+    _collection = collection;
+    [collection reloadData];
+}
+
+-(void)setRepresentedArray:(NSArray *)representedArray {
+    _indexPathsForSelectedItems = nil;
+    _representedArray = representedArray;
+    [_collection reloadData];
 }
 
 -(NSArray *)selectedObjects {
@@ -133,6 +144,7 @@
 -(bool)allowsMultipleSelection {
     return [_collection allowsMultipleSelection];
 }
+
 -(void)setAllowsMultipleSelection:(bool)allowsMultipleSelection {
     [_collection setAllowsMultipleSelection: allowsMultipleSelection];
 }

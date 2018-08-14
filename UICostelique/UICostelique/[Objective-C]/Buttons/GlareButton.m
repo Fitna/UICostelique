@@ -19,11 +19,17 @@
 @end
 
 
-@implementation GlareButton
-{
-    INIT_TOKEN
+@implementation GlareButton{
 }
-INIT_ALL(initialize)
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
 
 -(void)initialize
 {

@@ -25,5 +25,6 @@
     __autoreleasing id <MTLTexture> *tmp = src2;
     src2 = src1;
     src1 = tmp;
+    if (src2 == src1) return;
 }
 @end

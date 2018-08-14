@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class CustomKrutilka: UIView {
 
 
@@ -22,7 +21,6 @@ class CustomKrutilka: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        NSLog("layoutSubviews")
         self.updateKrutilka()
     }
 

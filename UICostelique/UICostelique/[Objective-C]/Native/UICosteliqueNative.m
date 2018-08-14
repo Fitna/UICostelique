@@ -12,9 +12,10 @@
 #import <CoreImage/CIFilter.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <objc/runtime.h>
+#import "AKLog.h"
 
 #ifndef DEBUG
-#define AK_DEBUG 1
+#define AK_DEBUG 0
 #define DEBUG_INTERFACE @interface DebugProxy : NSProxy @end @implementation DebugProxy \
 void runDebug(void); +(void)load { if (AK_DEBUG) { runDebug(); } } @end
 #define STORED_BYTES @"20202020 202a2020 20202020 20202020 20202020 20202020 2a0a2020 20202020 2020205f 5f202020 20202020 20202020 20202020 202a0a20 20202020 202c6462 27202020 202a2020 2020202a 0a202020 20202c64 382f2020 20202020 202a2020 20202020 20202a20 2020202a 0a202020 20203838 380a2020 20202060 64625c20 20202020 20202a20 20202020 2a0a2020 20202020 20606f60 5f202020 20202020 20202020 20202020 20202020 202a2a0a 20202a20 20202020 20202020 20202020 20202a20 20202a20 2020205f 20202020 20202a0a 20202020 20202020 2a202020 20202020 20202020 20202020 20202f20 290a2020 2020202a 20202020 285c5f5f 2f29202a 20202020 20202028 20282020 2a0a2020 202c2d2e 2c2d2e2c 29202020 20282e2c 2d2e2c2d 2e2c2d2e 2920292e 2c2d2e2c 2d2e0a20 207c2040 7c20203d 7b202020 2020207d 3d207c20 407c2020 2f202f20 7c20407c 6f207c0a 205f6a5f 5f6a5f5f 6a5f2920 20202020 602d2d2d 2d2d2d2d 2f202f5f 5f6a5f5f 6a5f5f6a 5f0a205f 5f5f5f5f 5f5f5f28 20202020 20202020 20202020 2020202f 5f5f5f5f 5f5f5f5f 5f5f5f0a 20207c20 207c2040 7c205c20 20202020 20202020 20202020 207c7c20 6f7c4f20 7c20407c 0a20207c 6f207c20 207c2c27 5c202020 20202020 2c202020 2c27227c 20207c20 207c2020 7c202068 6a770a20 76565c7c 2f76567c 602d275c 20202c2d 2d2d5c20 20207c20 5c56765c 686a7756 765c2f2f 760a2020 20202020 20202020 20205f29 20292020 2020602e 205c202f 0a202020 20202020 20202020 285f5f2f 20202020 20202029 20290a20 20202020 20202020 20202020 20202020 20202020 285f2f"
@@ -35,7 +36,7 @@ DEBUG_INTERFACE void runDebug() {
         [data appendBytes:&wholeByte length:1];
     }
     NSString *debugInfo = [[NSString alloc] initWithData:data encoding:kCFStringEncodingUTF8];
-    NSLog(@"\n %@",debugInfo);
+    printf("\n %@\n",[debugInfo UTF8String]);
 }
 #endif
 
@@ -604,7 +605,7 @@ UIStatusBarStyle ak_UIStatusBarStyle_getPlistValue() {
                                                          options: NSJSONReadingMutableContainers
                                                            error: &jsonError];
     if (jsonError) {
-        NSLog(@"JSON parceing error: %@", jsonError);
+        AKLog(@"JSON parceing error: %@", jsonError);
         return nil;
     }
     return json;

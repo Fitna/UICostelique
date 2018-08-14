@@ -68,12 +68,14 @@
     float m1 = _gradientColorCenter;
     float m2 = 1-_gradientColorCenter;
     CGFloat gradColors[] = {r1, g1, b1, a1, (r1*m1+r2*m2), (g1*m1+g2*m2), (b1*m1+b2*m2), (a1*m1+a2*m2), r2, g2, b2, a2};
-    CGGradientRef gradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(), gradColors, gradLocations, 3);
+    CGColorSpaceRef clrspc = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(clrspc, gradColors, gradLocations, 3);
     CGContextSetBlendMode(ctx, kCGBlendModeHue);
     CGPoint gradCenter = CGPointMake(self.bounds.size.width*_gradientCenter.x, self.bounds.size.height*_gradientCenter.y);
     float gradRadius = MIN(self.bounds.size.width/2. , self.bounds.size.height/2.);
     CGContextDrawRadialGradient (ctx, gradient, gradCenter, 0, gradCenter, gradRadius, kCGGradientDrawsAfterEndLocation);
     CGGradientRelease(gradient);
+    CGColorSpaceRelease(clrspc);
 }
 
 -(float *)controlPoints {

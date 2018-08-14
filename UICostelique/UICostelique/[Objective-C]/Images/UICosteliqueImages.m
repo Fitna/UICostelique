@@ -191,9 +191,9 @@
     else if (deviceOrient == UIDeviceOrientationPortraitUpsideDown)
         angle = M_PI;
     //    if (angle)
-    {
+//    {
         CGAffineTransform trans = CGAffineTransformRotate(CGAffineTransformIdentity, angle);
-        trans = CGAffineTransformMakeScale(-1, 1);
+        trans = CGAffineTransformScale(trans, -1, 1);
         CIImage *ciimg = [self imageByApplyingTransform:trans];
         trans = CGAffineTransformIdentity;
         CGRect extent = ciimg.extent;
@@ -201,7 +201,7 @@
         trans.ty -= extent.origin.y;
         ciimg = [ciimg imageByApplyingTransform:trans];
         return ciimg;
-    }
+//    }
     return self;
 }
 

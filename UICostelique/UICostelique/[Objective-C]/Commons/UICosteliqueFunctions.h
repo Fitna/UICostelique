@@ -73,4 +73,5 @@ BOOL IPAD(void);
 
 BOOL hasConnectivity(void);
 
+void UICostelique_enable_log(BOOL logEnabled);
 #pragma clang diagnostic pop

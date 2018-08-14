@@ -8,6 +8,7 @@
 
 #import "Texture&Images.h"
 #import <MetalKit/MetalKit.h>
+#import "AKLog.h"
 
 id<MTLTexture> makeMetalTexture(MTLPixelFormat format, int width, int height) {
     if (width > 16384 || height > 16384) {
@@ -66,7 +67,7 @@ static void MBEReleaseDataCallback(void *info, const void *data, size_t size)
             bitmapInfo = kCGImageByteOrder32Big | kCGImageAlphaPremultipliedLast;
             break;
         default:
-//            NSLog(@"wrong pixel format: %ld", [texture pixelFormat]);
+            AKLog(@"wrong pixel format: %ld", [texture pixelFormat]);
             abort();
     }
     CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;

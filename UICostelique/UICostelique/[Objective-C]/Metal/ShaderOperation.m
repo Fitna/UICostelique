@@ -9,7 +9,7 @@
 #import "ShaderOperation.h"
 #import "MetalContext.h"
 #import <MetalKit/MetalKit.h>
-
+#import "AKLog.h"
 
 @interface ShaderOperation()
 @property MetalContext *context;
@@ -24,7 +24,7 @@
 @implementation ShaderOperation
 -(instancetype)init {
     if ([self isMemberOfClass:[ShaderOperation class]]) {
-        NSLog(@"Must subclass ShaderFilter");
+        AKLog(@"Must subclass ShaderFilter");
         abort();
     }
 
@@ -32,13 +32,13 @@
         _context = [MetalContext defaultContext];
         _function = [_context.library newFunctionWithName:[[self class] functionName]];
         if (_context.library && !_function) {
-            NSLog(@"Must implement +(NSString *)functionName in ShaderFilter subclass");
+            AKLog(@"Must implement +(NSString *)functionName in ShaderFilter subclass");
             abort();
         }
         NSError *err;
         _pipeline = [_context.device newComputePipelineStateWithFunction:_function error:&err];
         if (err) {
-            NSLog(@"Comute pipeline initialisation error \n %@", err);
+            AKLog(@"Comute pipeline initialisation error \n %@", err);
             abort();
         }
         _threadgroupSize_precalculated = ({

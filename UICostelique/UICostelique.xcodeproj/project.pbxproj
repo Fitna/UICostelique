@@ -89,6 +89,9 @@
 		7C52F479211D7FE600A87A80 /* TransparentNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F428211D7FE600A87A80 /* TransparentNavigationController.swift */; };
 		7C52F47A211D7FE600A87A80 /* UILocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F429211D7FE600A87A80 /* UILocalizable.swift */; };
 		7C52F47B211D7FE600A87A80 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F42A211D7FE600A87A80 /* VisualEffectView.swift */; };
+		7C986A53212299A3005F12BE /* AKLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C986A51212299A3005F12BE /* AKLog.h */; };
+		7C986A7A2122AD58005F12BE /* FishImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C986A782122AD58005F12BE /* FishImageView.h */; };
+		7C986A7B2122AD58005F12BE /* FishImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C986A792122AD58005F12BE /* FishImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +179,9 @@
 		7C52F428211D7FE600A87A80 /* TransparentNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentNavigationController.swift; sourceTree = "<group>"; };
 		7C52F429211D7FE600A87A80 /* UILocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILocalizable.swift; sourceTree = "<group>"; };
 		7C52F42A211D7FE600A87A80 /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		7C986A51212299A3005F12BE /* AKLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKLog.h; sourceTree = "<group>"; };
+		7C986A782122AD58005F12BE /* FishImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FishImageView.h; sourceTree = "<group>"; };
+		7C986A792122AD58005F12BE /* FishImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FishImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +225,7 @@
 		7C52F3CD211D7FE600A87A80 /* [Objective-C] */ = {
 			isa = PBXGroup;
 			children = (
+				7C986A502122997E005F12BE /* Internal */,
 				7C52F3CE211D7FE600A87A80 /* Buttons */,
 				7C52F3D3211D7FE600A87A80 /* Camera */,
 				7C52F3D8211D7FE600A87A80 /* CollectionControllers */,
@@ -360,6 +367,8 @@
 				7C52F412211D7FE600A87A80 /* ViewFromXib.m */,
 				7C52F413211D7FE600A87A80 /* ViewWithImageMask.h */,
 				7C52F414211D7FE600A87A80 /* ViewWithImageMask.m */,
+				7C986A782122AD58005F12BE /* FishImageView.h */,
+				7C986A792122AD58005F12BE /* FishImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +408,14 @@
 			path = Uncommon;
 			sourceTree = "<group>";
 		};
+		7C986A502122997E005F12BE /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				7C986A51212299A3005F12BE /* AKLog.h */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -411,6 +428,7 @@
 				7C52F456211D7FE600A87A80 /* AKAnimator.h in Headers */,
 				7C52F45E211D7FE600A87A80 /* ScreenLockView.h in Headers */,
 				7C52F440211D7FE600A87A80 /* UICosteliqueFunctions.h in Headers */,
+				7C986A7A2122AD58005F12BE /* FishImageView.h in Headers */,
 				7C52F460211D7FE600A87A80 /* UIView.h in Headers */,
 				7C52F439211D7FE600A87A80 /* MusicController.h in Headers */,
 				7C52F442211D7FE600A87A80 /* UICosteliqueImages.h in Headers */,
@@ -430,6 +448,7 @@
 				7C52F45A211D7FE600A87A80 /* OnePixelView.h in Headers */,
 				7C52F464211D7FE600A87A80 /* ViewFromXib.h in Headers */,
 				7C52F462211D7FE600A87A80 /* VersionLabel.h in Headers */,
+				7C986A53212299A3005F12BE /* AKLog.h in Headers */,
 				7C52F435211D7FE600A87A80 /* AKTimer.h in Headers */,
 				7C52F313211D7F0D00A87A80 /* UICostelique.h in Headers */,
 				7C52F449211D7FE600A87A80 /* SOCopy.h in Headers */,
@@ -452,6 +471,7 @@
 				7C52F30A211D7F0D00A87A80 /* Frameworks */,
 				7C52F30B211D7F0D00A87A80 /* Headers */,
 				7C52F30C211D7F0D00A87A80 /* Resources */,
+				7C986A4D212286BB005F12BE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -468,6 +488,7 @@
 		7C52F305211D7F0D00A87A80 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Олег";
 				TargetAttributes = {
@@ -503,6 +524,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7C986A4D212286BB005F12BE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7C52F309211D7F0D00A87A80 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -529,6 +567,7 @@
 				7C52F463211D7FE600A87A80 /* VersionLabel.m in Sources */,
 				7C52F441211D7FE600A87A80 /* UICosteliqueFunctions.m in Sources */,
 				7C52F44C211D7FE600A87A80 /* Texture&Images.m in Sources */,
+				7C986A7B2122AD58005F12BE /* FishImageView.m in Sources */,
 				7C52F47A211D7FE600A87A80 /* UILocalizable.swift in Sources */,
 				7C52F448211D7FE600A87A80 /* SOAdd.m in Sources */,
 				7C52F479211D7FE600A87A80 /* TransparentNavigationController.swift in Sources */,
@@ -687,10 +726,10 @@
 		7C52F317211D7F0D00A87A80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3686T462U3;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -704,6 +743,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.am.UICostelique;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -713,10 +753,10 @@
 		7C52F318211D7F0D00A87A80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3686T462U3;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -730,6 +770,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.am.UICostelique;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

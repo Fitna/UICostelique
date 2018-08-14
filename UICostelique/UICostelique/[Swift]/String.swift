@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension String {
+public extension String {
     func trimWhitespacesAndNewlines() -> String {
         let nsstr = self as NSString
         return nsstr.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -38,7 +38,7 @@ extension String {
     }
 }
 
-func LocalizedString(inTable table:String?, forKey key:String) -> String {
+public func LocalizedString(inTable table:String?, forKey key:String) -> String {
     return Bundle.main.localizedString(forKey: key, value: nil, table: table)
 }
 

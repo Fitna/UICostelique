@@ -18,16 +18,15 @@
 
 @implementation ScreenLockView
 -(instancetype)init{
-    if (self != [super init]) {
-        return nil;
+    if (self = [super init]) {
+        _arrayQueue = dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
+        _viewsInUse = [[NSMutableArray alloc] init];
+        _maskLayer = [[CALayer alloc] init];
+        self.layer.zPosition = 9000;
+        self.layer.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7].CGColor;
+        self.layer.masksToBounds = YES;
+        self.layer.mask = _maskLayer;
     }
-    _arrayQueue = dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
-    _viewsInUse = [[NSMutableArray alloc] init];
-    _maskLayer = [[CALayer alloc] init];
-    self.layer.zPosition = 9000;
-    self.layer.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7].CGColor;
-    self.layer.masksToBounds = YES;
-    self.layer.mask = _maskLayer;
     return self;
 }
 
@@ -91,6 +90,7 @@
 
     CGImageRelease(ret);
     CGContextRelease(context);
+    CGColorSpaceRelease(rgbColorSpace);
 }
 
 -(void)removeFromSuperview {

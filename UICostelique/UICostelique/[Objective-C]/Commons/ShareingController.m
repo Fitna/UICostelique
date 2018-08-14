@@ -108,24 +108,24 @@
 -(void)shreToInstagram
 {
     [self startShareing];
-    
-    
-        [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
-            PHAssetChangeRequest *request;
-            if ([self.resourceToShare isKindOfClass:[UIImage class]]) {
-               request = [PHAssetChangeRequest creationRequestForAssetFromImage:self.resourceToShare];
-            } else if ([self.resourceToShare isKindOfClass:[NSURL class]]) {
-                request = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:self.resourceToShare];
-            }
-            NSString *assetID = request.placeholderForCreatedAsset.localIdentifier;
-            NSURL *shareURL = [NSURL URLWithString:[@"instagram://library?AssetPath=" stringByAppendingString:assetID]];
-            [[UIApplication sharedApplication] openURL:shareURL options:@{} completionHandler:^(BOOL success) {
-                [self completion:success failText:@"Install instagram to share"];
-            }];
-            } error:nil];
-            
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        PHAssetChangeRequest *request;
+        if ([self.resourceToShare isKindOfClass:[UIImage class]]) {
+            request = [PHAssetChangeRequest creationRequestForAssetFromImage:self.resourceToShare];
+        } else if ([self.resourceToShare isKindOfClass:[NSURL class]]) {
+            request = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:self.resourceToShare];
         }
-         
+        NSString *assetID = request.placeholderForCreatedAsset.localIdentifier;
+        if (!assetID) {
+            return;
+        }
+        NSURL *shareURL = [NSURL URLWithString:[@"instagram://library?AssetPath=" stringByAppendingString:assetID]];
+        [[UIApplication sharedApplication] openURL:shareURL options:@{} completionHandler:^(BOOL success) {
+            [self completion:success failText:@"Install instagram to share"];
+        }];
+    } error:nil];
+}
+
 
 // MARK: - shareing
 -(void)startShareing

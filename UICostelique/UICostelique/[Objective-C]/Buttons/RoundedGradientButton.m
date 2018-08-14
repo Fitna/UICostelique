@@ -49,6 +49,7 @@
     CGContextDrawLinearGradient(context, grad, points[0], points[1], drawOptions);
     CGContextRestoreGState(context);
 
+    CGPathRelease(path);
     CGGradientRelease(grad);
     CGColorSpaceRelease(space);
 }

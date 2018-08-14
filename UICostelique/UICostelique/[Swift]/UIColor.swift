@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     convenience init(hex rgb: UInt32) {
         if rgb > 99999 && rgb < 1000000 {
             let r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
@@ -46,5 +46,14 @@ extension UIColor {
             return
         }
         self.init(hex: rgba >> 8, alpha: Float(rgba & 0x000000FF) / 255.0)
+    }
+
+
+    convenience init(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat) {
+        if r > 1 || g > 1 || b > 1 {
+            self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
+            return
+        }
+        self.init(red: r, green: g, blue: b, alpha: 1)
     }
 }

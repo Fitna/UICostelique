@@ -11,20 +11,49 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+#import "AKLog.h"
+
+#ifdef DEBUG
+bool _UICostelique_log_enabled = true;
+#else
+bool _UICostelique_log_enabled = false;
+#endif
+
+void UICostelique_enable_log(BOOL newValue) {
+    _UICostelique_log_enabled = newValue;
+}
+
+void AKLog(NSString *string, ...) {
+    if (!_UICostelique_log_enabled) {
+        return;
+    }
+//    static float startTime;
+//    if (startTime == 0) {
+        // startTime = CFAbsoluteTimeGetCurrent();
+//    }
+    printf("UICostelique: ");//, CFAbsoluteTimeGetCurrent() - startTime);
+    if (string) {
+        va_list args;
+        va_start(args, string);
+        printf("%s", [[NSString alloc] initWithFormat:string arguments:args].UTF8String);
+        va_end(args);
+    }
+    printf("\n");
+}
 
 void nyan()
 {
-    NSLog(@"\n                                                    /\\_/\\ \n                                                   ( o.o )\n                                                    > ^ <");
+    AKLog(@"\n                                                    /\\_/\\ \n                                                   ( o.o )\n                                                    > ^ <");
 }
 
 void logPoint(CGPoint point)
 {
-    NSLog(@"x = %f, y = %f", point.x, point.y);
+    AKLog(@"x = %f, y = %f", point.x, point.y);
 }
 
 void logFrame(CGRect frame)
 {
-    NSLog(@"x: %f, y:%f, width: %f, height: %f",frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+    AKLog(@"x: %f, y:%f, width: %f, height: %f",frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
 }
 
 bool coordInclude( CGPoint point, CGRect rect)
@@ -402,12 +431,14 @@ BOOL hasConnectivity() {
         if (SCNetworkReachabilityGetFlags(reachability, &flags)) {
             if ((flags & kSCNetworkReachabilityFlagsReachable) == 0) {
                 // If target host is not reachable
+                CFRelease(reachability);
                 return NO;
             }
 
             if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0) {
                 // If target host is reachable and no connection is required
                 //  then we'll assume (for now) that your on Wi-Fi
+                CFRelease(reachability);
                 return YES;
             }
 
@@ -418,6 +449,7 @@ BOOL hasConnectivity() {
 
                 if ((flags & kSCNetworkReachabilityFlagsInterventionRequired) == 0) {
                     // ... and no [user] intervention is needed
+                    CFRelease(reachability);
                     return YES;
                 }
             }
@@ -425,11 +457,12 @@ BOOL hasConnectivity() {
             if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN) {
                 // ... but WWAN connections are OK if the calling application
                 //     is using the CFNetwork (CFSocketStream?) APIs.
+                CFRelease(reachability);
                 return YES;
             }
         }
+        CFRelease(reachability);
     }
-    CFRelease(reachability);
     return NO;
 }
 
@@ -454,7 +487,7 @@ void fooTest()
         for (int i = 0; i < 10; i++)
         {
             *p++ = i;
-            NSLog(@"s[%d]=%f",i,s[i]);
+            AKLog(@"s[%d]=%f",i,s[i]);
         }
         return;
     }
@@ -485,4 +518,6 @@ b:
         goto *lab[1];
     }
 }
+
+
 

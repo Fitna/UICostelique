@@ -10,8 +10,6 @@
 #define UICosteliqueDefines_h
 
 #define CORES_COUNT [[NSProcessInfo processInfo] activeProcessorCount]
-#define TIMER_START static NSDate *timerStart; timerStart = [NSDate date];
-#define TIMER_LOG NSLog(@"Time = %f",-[timerStart timeIntervalSinceNow]); timerStart = [NSDate date];
 
 #define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
@@ -63,7 +61,6 @@ try {} @finally {} } (); }; \
 }) : nil
 
 #endif /* UICosteliqueDefines_h */
-
 
 #ifndef DEBUG
 #define NSLog(x,...) (void *)(x)

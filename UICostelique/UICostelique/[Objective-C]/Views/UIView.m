@@ -140,14 +140,10 @@
             break;
         }
     }
-//#ifdef DEBUG
-//    NSLog(@"%@",c);
-//#endif
     return c;
 }
 
--(NSLayoutConstraint *)heightConstraint
-{
+-(NSLayoutConstraint *)heightConstraint {
     for (NSLayoutConstraint *constr in [self constraints]) {
         if (constr.firstAttribute == NSLayoutAttributeHeight) {
             return constr;
@@ -156,8 +152,7 @@
     return nil;
 }
 
--(NSLayoutConstraint *)widthConstraint
-{
+-(NSLayoutConstraint *)widthConstraint {
     for (NSLayoutConstraint *constr in [self constraints]) {
         if (constr.firstAttribute == NSLayoutAttributeWidth) {
             return constr;

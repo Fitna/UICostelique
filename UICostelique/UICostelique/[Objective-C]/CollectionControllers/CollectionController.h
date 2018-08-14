@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property bool unselectable; //false by default
 @property (nonatomic) NSArray *selectedObjects;
 @property (nonatomic) bool allowsMultipleSelection;
+-(__kindof UICollectionViewCell *__nullable)cellForItem:(id)item;
 -(instancetype)init;
 @end
 

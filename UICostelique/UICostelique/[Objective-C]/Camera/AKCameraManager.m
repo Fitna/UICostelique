@@ -8,6 +8,7 @@
 
 #import "AKCameraManager.h"
 #import "AKAssetWriter.h"
+#import "AKLog.h"
 
 static void dispatch_sync_main_wdl(dispatch_block_t block)
 {
@@ -55,10 +56,6 @@ static UIViewController* topViewController() {
 -(instancetype)init {
     if (self = [super init]) {
         [self setupCaptureVideoDataOutput];
-        __weak id weakself = _session;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSLog(@"%@", weakself);
-        });
     }
     return self;
 }
