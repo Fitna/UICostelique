@@ -12,9 +12,9 @@
 
 
 @interface AKCameraManager : NSObject
-@property (readonly) CALayer *videoLayer;
+@property (readonly, nonatomic) CALayer *videoLayer;
+@property (weak, nonatomic) id<AVCaptureVideoDataOutputSampleBufferDelegate> delegate;
 
--(void)setDelegate:(id<AVCaptureVideoDataOutputSampleBufferDelegate>)object;
 -(void)capturePhotoWithDelegate:(id<AVCapturePhotoCaptureDelegate>)delegate;
 -(void)changeCamera;
 
@@ -22,7 +22,7 @@
 -(AVCaptureDevice *)frontCamera;
 -(AVCaptureDevice *)backCamera;
 -(BOOL)mirrored;
--(void)setVideoLayer:(CALayer *)layer;
+-(void)addVideoLayerTo:(CALayer *)layer;
 
 -(BOOL)start;
 -(void)stop;

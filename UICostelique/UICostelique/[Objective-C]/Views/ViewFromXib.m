@@ -37,16 +37,19 @@
     }
 }
 
--(void)setupCustomView {
-    NSString *className = NSStringFromClass([self class]);
++(NSString *)xibFileName {
+    NSString *className = NSStringFromClass(self);
     NSRange range = [className rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"."]];
     if (range.length > 0) {
         className = [className substringFromIndex: range.location + 1];
     }
-    
-    _customView = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
-    _customView.backgroundColor = self.backgroundColor;
-    self.backgroundColor = UIColor.clearColor;
+    return className;
+}
+
+-(void)setupCustomView {
+    NSString *xibName = [self.class xibFileName];
+    _customView = [[[NSBundle mainBundle] loadNibNamed:xibName owner:self options:nil] firstObject];
+    _customView.backgroundColor = UIColor.clearColor;
     _customView.frame = self.bounds;
     [self addSubview:_customView];
 }

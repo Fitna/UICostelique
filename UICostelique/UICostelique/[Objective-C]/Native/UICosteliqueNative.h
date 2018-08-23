@@ -30,6 +30,7 @@
 @property (nonatomic) IBInspectable NSString *customFont;
 - (float)expectedHeightWithWidth:(float)width;
 -(void)updateTextSizeToFitWordsByWidth;
+
 @end
 
 @interface CALayer (Costelique)

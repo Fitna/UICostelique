@@ -13,26 +13,15 @@
 @implementation UIView (Costelique)
 -(void)removeAllSubviewsRecursively:(bool)flag;
 {
-    if (flag) {
-        for (UIView *subv in [self.subviews reverseObjectEnumerator]) {
-            [subv removeFromSuperviewRecursively];
-        }
-    } else {
-        for (UIView *subv in [self.subviews reverseObjectEnumerator]) {
-            [subv removeFromSuperview];
-        }
-    }
-}
-
--(void)removeFromSuperviewRecursively
-{
     for (UIView *subv in [self.subviews reverseObjectEnumerator]) {
-        [subv removeFromSuperviewRecursively];
+        if (flag) {
+            [subv removeAllSubviewsRecursively:true];
+        }
+        [subv removeFromSuperview];
     }
-    [self removeFromSuperview];
 }
 
-- (id)findSubviewClass:(Class)datClass {
+- (id)subviewOfClass:(Class)datClass {
     for (UIView *vi in self.subviews) {
         if ([vi isMemberOfClass:datClass]) {
             return vi;
@@ -41,7 +30,7 @@
     return nil;
 }
 
-- (id)findAllSubviewsClass:(Class)datClass {
+- (id)allSubviewsOfClass:(Class)datClass {
     NSMutableArray* arr = [NSMutableArray new];
     
     for (UIView *vi in self.subviews) {
@@ -95,16 +84,17 @@
     [self hideBlockView];
 }
 
+#define BLOCK_VIEW_TAG 8712385
 -(void)blockView
 {
     for (UIView *vi in self.subviews) {
-        if (vi.tag == 8712385) {
+        if (vi.tag == BLOCK_VIEW_TAG) {
             return;
         }
     }
     UIView *view = [[UIView alloc] initWithFrame:[self bounds]];
     view.userInteractionEnabled = YES;
-    view.tag = 8712385;
+    view.tag = BLOCK_VIEW_TAG;
     [self addSubview:view];
     view.backgroundColor = [UIColor colorWithWhite:0 alpha:.3];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleWidth;
@@ -117,7 +107,7 @@
 
 -(void)hideBlockView {
     for (UIView *vi in self.subviews) {
-        if (vi.tag == 8712385) {
+        if (vi.tag == BLOCK_VIEW_TAG) {
             [vi removeAllSubviewsRecursively:NO];
             vi.backgroundColor = nil;
         }
@@ -126,21 +116,44 @@
 
 -(void)unblockView {
     for (UIView *vi in self.subviews) {
-        if (vi.tag == 8712385) {
+        if (vi.tag == BLOCK_VIEW_TAG) {
             [vi removeFromSuperview];
         }
     }
 }
 
 -(NSLayoutConstraint *)constraint:(NSLayoutAttribute)attr {
-    NSLayoutConstraint *c = nil;
     for (NSLayoutConstraint *constr in [self constraints]) {
         if (constr.firstAttribute == attr) {
-            c = constr;
-            break;
+            return constr;
         }
     }
-    return c;
+    for (NSLayoutConstraint *constr in [self.superview constraints]) {
+        if (constr.firstAttribute == attr && constr.firstItem == self) {
+            return constr;
+        }
+        if (constr.secondAttribute == attr && constr.secondItem == self) {
+        return  constr;
+        }
+    }
+    return nil;
+}
+
+-(NSArray<NSLayoutConstraint *> *)constraints:(NSLayoutAttribute)attr {
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for (NSLayoutConstraint *constr in [self constraints]) {
+        if (constr.firstAttribute == attr) {
+            [arr addObject:constr];
+        }
+    }
+    for (NSLayoutConstraint *constr in [self.superview constraints]) {
+        if (constr.firstAttribute == attr && constr.firstItem == self) {
+            [arr addObject:constr];
+        } else if (constr.secondAttribute == attr && constr.secondItem == self) {
+            [arr addObject:constr];
+        }
+    }
+    return arr;
 }
 
 -(NSLayoutConstraint *)heightConstraint {

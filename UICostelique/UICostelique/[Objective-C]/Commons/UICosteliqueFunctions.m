@@ -120,8 +120,6 @@ CGRect frameCenter(CGSize size, CGSize sizeToCenter)
     return CGRectMake(sizeToCenter.width/2. - size.width/2., sizeToCenter.height/2. - size.height/2., size.width, size.height);
 }
 
-
-
 CGSize sizeMono(float size)
 {
     return CGSizeMake(size, size);
@@ -130,10 +128,9 @@ CGSize sizeMono(float size)
 NSString *randomStringWithLength(int len)
 {
     NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    //    NSString *letters = @"0123456789";
     NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
-    for (int i=0; i<len; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
+    for (int i = 0; i < len; i++) {
+        [randomString appendFormat: @"%c", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
     }
     
     return randomString;
@@ -145,7 +142,6 @@ CGFloat affineGetAngle(CGAffineTransform at)
 }
 
 CGFloat affineGetScale(CGAffineTransform trans) {
-    //    return sqrt(trans.a * trans.d + trans.b * trans.c);
     return sqrt(trans.a * trans.a + trans.b * trans.b);
 }
 
@@ -159,7 +155,7 @@ CGPoint pointShift(CGPoint point, CGPoint shift)
     return CGPointMake(point.x+shift.x, point.y+shift.y);
 }
 
-void DrawLine(CALayer *location, UIColor *color, CGFloat width, CGPoint start, CGPoint end)
+CAShapeLayer *drawLine(CALayer *location, UIColor *color, CGFloat width, CGPoint start, CGPoint end)
 {
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(roundf(start.x), roundf(start.y))];
@@ -170,51 +166,17 @@ void DrawLine(CALayer *location, UIColor *color, CGFloat width, CGPoint start, C
     shapeLayer.lineWidth = width;
     shapeLayer.fillColor = [[UIColor clearColor] CGColor];
     [location addSublayer:shapeLayer];
+    return shapeLayer;
 }
 
-CALayer * DrawSetka(CALayer *lay, UIColor *clr, CGRect rct, float wdth, float wdth2, float lngth)
-{
-    float scale = 3;
-    rct = CGRectMake(rct.origin.x, rct.origin.y, rct.size.width * scale, rct.size.height * scale);
-    wdth *= scale;
-    wdth2 *= scale;
-    lngth *= scale;
-    float width = rct.size.width;
-    float height = rct.size.height;
-    CALayer *view = [CALayer new];
-    DrawLine(view, clr, wdth, CGPointMake(0, 0), CGPointMake(0, height));
-    DrawLine(view, clr, wdth, CGPointMake(width/3, 0), CGPointMake(width/3, height));
-    DrawLine(view, clr, wdth, CGPointMake(width*2/3, 0), CGPointMake(width*2/3, height));
-    DrawLine(view, clr, wdth, CGPointMake(width, 0), CGPointMake(width, height));
-    DrawLine(view, clr, wdth, CGPointMake(0, 0), CGPointMake(width, 0));
-    DrawLine(view, clr, wdth, CGPointMake(0, height/3), CGPointMake(width, height/3));
-    DrawLine(view, clr, wdth, CGPointMake(0, height*2/3), CGPointMake(width, height*2/3));
-    DrawLine(view, clr, wdth, CGPointMake(0, height), CGPointMake(width, height));
-    
-    DrawLine(view, clr, wdth2, CGPointMake(0, -wdth2/2.), CGPointMake(0, lngth));
-    DrawLine(view, clr, wdth2, CGPointMake(-wdth2/2., 0), CGPointMake(lngth, 0));
-    DrawLine(view, clr, wdth2, CGPointMake(0, height+wdth2/2.), CGPointMake(0, height-lngth));
-    DrawLine(view, clr, wdth2, CGPointMake(-wdth2/2., height), CGPointMake(lngth, height));
-    DrawLine(view, clr, wdth2, CGPointMake(width, -wdth2/2.), CGPointMake(width, lngth));
-    DrawLine(view, clr, wdth2, CGPointMake(width+wdth2/2., 0), CGPointMake(width-lngth, 0));
-    DrawLine(view, clr, wdth2, CGPointMake(width, height+wdth2/2.), CGPointMake(width, height-lngth));
-    DrawLine(view, clr, wdth2, CGPointMake(width+wdth2/2., height), CGPointMake(width-lngth, height));
-    view.position = CGPointMake(roundf(rct.origin.x), roundf(rct.origin.y));
-    
-    view.affineTransform = CGAffineTransformMakeScale(1/scale, 1/scale);
-    [lay addSublayer:view];
-    return view;
-}
-
-CAShapeLayer *drawPoint(CALayer *layer, CGPoint center, float radius, UIColor *color)
+CAShapeLayer *drawPoint(CALayer *location, CGPoint center, float radius, UIColor *color)
 {
     CAShapeLayer *sl = [CAShapeLayer layer];
-    sl.path = [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius) cornerRadius:radius] CGPath];
-    sl.position = CGPointMake(center.x-radius, center.y+radius);
+    sl.path = [[UIBezierPath bezierPathWithRoundedRect: CGRectMake(0, 0, 2.0 * radius, 2.0*radius) cornerRadius: radius] CGPath];
+    sl.position = CGPointMake(center.x-radius, center.y-radius);
     sl.fillColor = color.CGColor;
-    sl.strokeColor = [UIColor clearColor].CGColor;
     sl.lineWidth = 0;
-    [layer addSublayer: sl];
+    [location addSublayer: sl];
     return sl;
 }
 
@@ -245,13 +207,14 @@ UIViewController *topViewController() {
             parentViewController = parentViewController.presentedViewController;
         }
     });
-    //    if ([parentViewController isKindOfClass:[UINavigationController class]]) {
-//        parentViewController = ((UINavigationController *)parentViewController).viewControllers.lastObject;
-//    }
     return parentViewController;
 }
 
-void CATransactionMake(float duration, __nullable id function, void(^ _Nullable transaction)(void), void(^ _Nullable complBlock)(void))
+void CATransactionMake(float duration, __nullable id function, void(^transaction)(void)) {
+    CATransactionMakeWithCompletion(duration, function, transaction, nil);
+}
+
+void CATransactionMakeWithCompletion(float duration, __nullable id function, void(^transaction)(void), void(^ _Nullable complBlock)(void))
 {
     [CATransaction begin];
     if (duration <= 0) {
@@ -261,8 +224,7 @@ void CATransactionMake(float duration, __nullable id function, void(^ _Nullable 
         [CATransaction setAnimationDuration:duration];
         if ([function isKindOfClass:[CAMediaTimingFunction class]]) {
             [CATransaction setAnimationTimingFunction:function];
-        }
-        else if ([function isKindOfClass:[NSString class]]) {
+        } else if ([function isKindOfClass:[NSString class]]) {
             [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:function]];
         }
     }
@@ -312,8 +274,7 @@ void dispatch_main_sync_wdl(dispatch_block_t block)
     }
 }
 
-static void CVReleaseDataCallback(void *info, const void *data)
-{
+static void CVReleaseDataCallback(void *info, const void *data) {
     free((void *)data);
 }
 
@@ -379,22 +340,6 @@ id staticVariableWithID(NSString *identifier, id(^initializer)(void)) {
     return var;
 }
 
-double realRand()
-{
-    uint32_t max = UINT_FAST32_MAX/100;
-    __block uint32_t sum = 0;
-
-    dispatch_queue_t disp = dispatch_queue_create("nyan", DISPATCH_QUEUE_SERIAL);
-    dispatch_group_t group = dispatch_group_create();
-    for (int i = 0; i < 100; i++) {
-        dispatch_group_async(group, disp, ^{
-                sum += arc4random_uniform(max);
-        });
-    }
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-    return ((double)sum)/((double)UINT_FAST32_MAX);
-}
-
 void dispatch_once_(NSString *token, dispatch_block_t block) {
     static dispatch_once_t onceToken[100];
     dispatch_once(&onceToken[0], block);
@@ -403,7 +348,6 @@ void dispatch_once_(NSString *token, dispatch_block_t block) {
 BOOL IPAD(void) {
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
 }
-
 
 static bool NO_CONNECTION = false;
 
@@ -482,29 +426,34 @@ void fooTest()
     
     $a:
     {
-        double s[10];
-        double *p = s;
-        for (int i = 0; i < 10; i++)
-        {
+        long s[10];
+        long *p = s;
+        for (int i = 0; i < 10; i++) {
             *p++ = i;
-            AKLog(@"s[%d]=%f",i,s[i]);
+            printf("s[%d]=%ld,   ",i,s[i]);
         }
+        printf("\n");
         return;
     }
 b:
     {
+        simd_int8 v1 = {0,1,2,3,4,5,6,7};
+        simd_int8 v2 = {7,6,5,4,3,2,1,0};
+        simd_int8 v3 = v1 * v2;
+        printf("v3 = %d, %d, %d, %d, %d, %d, %d, %d\n",v3[0],v3[1],v3[2],v3[3],v3[4],v3[5],v3[6],v3[7]);
         typedef int v __attribute__ ((vector_size (16)));
-        v a = {1,2,3,4};
-        v b = {3,2,1,4};
-        v c;
-        c = a - b;
-        printf("%d \n\n",c[0]);
+        v a = {1, 2, 3, 4};
+        v b = {3, 3, 1, 10};
+        v c = a - b;
+        printf("c = %d, %d, %d, %d \n\n",c[0],c[1],c[2],c[3]);
         goto *lab[0];
     }
     $c:
     {
         coords s[10] = {[0 ... 2].x = 10, [3 ... 6].x = 9, [8].z = 6};
-        int h1 = s[1].x + ({int *arr = (int[]){[0] = s[4].x, [1 ... 9] = s[8].z}; *arr-=arr[9];}), h2, h3;
+        int *arr = (int[]){[0] = s[4].x, [1 ... 9] = s[8].z};
+        int d = ({*arr-=arr[9];});
+        int h1 = s[1].x + d, h2, h3;
         switch (h1) {
             case 10 ... 15:
                 h2 = 5;
@@ -514,7 +463,7 @@ b:
                 break;
         }
         h3 = h2 + 1 ? : -1;
-        printf("\n h1 = %d \n h2 = %d \n h3 = %d \n\n", h1, h2, h3);
+        printf("\nh1 = %d,   h2 = %d,   h3 = %d \n\n", h1, h2, h3);
         goto *lab[1];
     }
 }

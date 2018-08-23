@@ -131,6 +131,7 @@ public extension CGRect {
     init(_ x:CGFloat,_ y:CGFloat,_ w:CGFloat,_ h:CGFloat) {
         self.init(x: x, y: y, width: w, height: h);
     }
+
     func shift(_ shift: CGFloat) -> CGRect {
         return CGRect(x: self.origin.x + shift,
                       y: self.origin.y + shift,
@@ -156,6 +157,13 @@ public extension CGRect {
         let rwidth = CGFloat(Darwin.round(Double(self.size.width)))
         let rheight = CGFloat(Darwin.round(Double(self.size.height)))
         return CGRect(x:rx, y:ry, width:rwidth, height: rheight)
+    }
+
+    static func / (left: CGRect, right: CGFloat) -> CGRect {
+        return CGRect(left.origin.x / right, left.origin.y / right, left.width / right, left.height / right)
+    }
+    static func * (left: CGRect, right: CGFloat) -> CGRect {
+        return CGRect(left.origin.x * right, left.origin.y * right, left.width * right, left.height * right)
     }
 }
 

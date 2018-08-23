@@ -138,14 +138,17 @@ DEBUG_INTERFACE void runDebug() {
     CGRect rct = [[self text] boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:0 attributes:dict context:[NSStringDrawingContext new]];
     return rct.size.width;
 }
+void *fontKey = &fontKey;
+-(UIFont *)originalFont {
+    return objc_getAssociatedObject(self, fontKey);
+}
+-(void)setOriginalFont:(UIFont *)font {
+    objc_setAssociatedObject(self, fontKey, font, OBJC_ASSOCIATION_RETAIN);
+}
 
--(void)updateTextSizeToFitWordsByWidth {
-    NSArray *arr = [self.text componentsSeparatedByString:@" "];
-    float width = self.bounds.size.width - 5;
-    if (arr.count < 2 || width < 40) {
-        return;
-    }
-    UIFont *font = self.font;
+-(void)_setTextWithFitting:(NSArray *)arr {
+    float width = self.bounds.size.width;
+    UIFont *font = [self originalFont];
     float minSize = self.minimumScaleFactor * font.pointSize;
 
     for (NSString *word in arr) {
@@ -158,6 +161,24 @@ DEBUG_INTERFACE void runDebug() {
         }
     }
     self.font = font;
+}
+
+-(void)updateTextSizeToFitWordsByWidth {
+    if (![self originalFont]) {
+        [self setOriginalFont: self.font];
+    }
+
+    NSString *string = self.text;
+    NSArray *arr = [string componentsSeparatedByString:@" "];
+    [self _setTextWithFitting:arr];
+
+    if (self.font.pointSize < [self originalFont].pointSize && arr.count == 1) {
+        NSMutableArray *arr1 = [[string componentsSeparatedByString:@"-"] mutableCopy];
+        arr1[0] = [arr1[0] stringByAppendingString:@"-"];
+        if (arr1.count > arr.count) {
+            [self _setTextWithFitting: arr1];
+        }
+    }
 }
 @end
 
@@ -748,4 +769,82 @@ UIStatusBarStyle ak_UIStatusBarStyle_getPlistValue() {
     [self autoadjustFontSizeWithInsets:UIEdgeInsetsMake(3, 6, 3, 6)];
 }
 @end
+
+@implementation NSObject (blackMagic)
+void printClassMethods(Class c) {
+    unsigned int count;
+    NSLog(@"\n\n  Methods %@",c);
+    Method *m = class_copyMethodList(c, &count);
+    for (NSUInteger i=0; i<count; i++) {
+        Method met = m[i];
+        NSLog(@"%@ %s", NSStringFromSelector(method_getName(met)), method_getTypeEncoding(met));
+    }
+    NSLog(@"\n\n");
+}
+void printClassIvars(Class c) {
+    unsigned int count;
+    NSLog(@"\n\n  Ivars %@",c);
+    Ivar *vars = class_copyIvarList(c, &count);
+    for (NSUInteger i=0; i<count; i++) {
+        Ivar var = vars[i];
+        NSLog(@"%s %s", ivar_getName(var), ivar_getTypeEncoding(var));
+    }
+    NSLog(@"\n\n");
+}
+
+-(void)overrideSelector:(SEL)sel withBlock:(id)block {
+    if ([self respondsToSelector:sel]) {
+        const char *rootClassIvarName = "Costelique_BlackMagic_rootClass";
+        const char *subclassCounterIvarName = "Costelique_BlackMagic_subclassCounter";
+
+        Class class = [self class];
+        Class rootClass = object_getIvar(self, class_getInstanceVariable(class, rootClassIvarName));
+
+        if (!rootClass) {
+            int z = ((int)pow(3, 6) ^ 2 << 5);
+            NSString *scName = [NSString stringWithFormat:@"%s_$%d",class_getName(class),++z];
+            class = objc_allocateClassPair([self class], [scName UTF8String], 0);
+            class_addIvar(class, rootClassIvarName, sizeof(Class), log2(sizeof(class)), @encode(typeof(class)));
+            class_addIvar(class, subclassCounterIvarName, sizeof(int), log2(_Alignof(int)), @encode(int));
+            objc_registerClassPair(class);
+            rootClass = [self class];
+            object_setClass(self, class);
+            object_setIvar(self, class_getInstanceVariable(class, rootClassIvarName), rootClass);
+            ((void (*)(id, Ivar, int))object_setIvar)(self, class_getInstanceVariable(class, subclassCounterIvarName), z);
+        } else {
+            ptrdiff_t offset = ivar_getOffset(class_getInstanceVariable([self class], subclassCounterIvarName));
+            unsigned char* bytes = (unsigned char *)(__bridge void*)self;
+            int *counter = ((int *)(bytes+offset));
+            NSString *subclassName = [NSString stringWithFormat:@"%s_$%d",class_getName(rootClass),++counter[0]];
+            class = objc_allocateClassPair([self class], [subclassName UTF8String], 0);
+            objc_registerClassPair(class);
+            object_setClass(self, class);
+        }
+    }
+    class_addMethod([self class], sel, imp_implementationWithBlock(block), @encode(typeof(block)));
+}
+
++(void)overrideSelector:(SEL)sel withBlock:(id)block {
+    if (![self instancesRespondToSelector:sel]) {
+        class_addMethod([self class], sel, imp_implementationWithBlock(block), @encode(typeof(block)));
+    } else {
+        class_addMethod([self class], sel, imp_implementationWithBlock(block), @encode(typeof(block)));
+    }
+}
+
+-(SEL)makeSelector:(NSString *)name withBlock:(id)block {
+    return selector(self, (char*)[name UTF8String], block);
+}
+
+SEL selector(id obj, char* name, id block) {
+    SEL selector = sel_getUid(name);
+    if (class_respondsToSelector([(NSObject*)obj class], selector))
+        return selector;
+    IMP impFunct = imp_implementationWithBlock(block);
+    class_addMethod([(NSObject*)obj class], selector, (IMP)impFunct, @encode(typeof(block)));
+    return selector;
+}
+
+@end
+
 

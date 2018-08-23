@@ -40,13 +40,13 @@ CGFloat affineGetScale(CGAffineTransform trans);
 CGFloat affineGetAngle(CGAffineTransform at);
 bool affineFlipped(CGAffineTransform trans);
 
-void CATransactionMake(float duration, __nullable id function, void(^ _Nullable transaction)(void), void(^ _Nullable complBlock)(void));
+void CATransactionMake(float duration, __nullable id function, void(^transaction)(void));
+void CATransactionMakeWithCompletion(float duration, __nullable id function, void(^transaction)(void), void(^ _Nullable complBlock)(void));
 
 CVPixelBufferRef CVPixelBufferWithMTLTexture(id<MTLTexture> texture);
 
-CALayer * DrawSetka(CALayer *lay, UIColor *clr, CGRect rct, float wdth, float wdth2, float lngth);
-CAShapeLayer *drawPoint(CALayer *layer, CGPoint center, float radius, UIColor *color);
-CALayer *drawOvalGrad(CALayer *layer, CGPoint center, CGSize sz, UIColor *color);
+CAShapeLayer *drawLine(CALayer *location, UIColor *color, CGFloat width, CGPoint start, CGPoint end);
+CAShapeLayer *drawPoint(CALayer *location, CGPoint center, float radius, UIColor *color);
 
 NSString *randomStringWithLength(int len);
 UIViewController *topViewControllerWithNavigationControllerControllers(void);
@@ -66,8 +66,6 @@ void dispatch_once_(NSString *token, dispatch_block_t block);
 void repeat_periodically(float period, void(^block)(bool *souldStop));
 
 id staticVariableWithID(NSString *identifier, id(^initializer)(void));
-
-double realRand(void);
 
 BOOL IPAD(void);
 

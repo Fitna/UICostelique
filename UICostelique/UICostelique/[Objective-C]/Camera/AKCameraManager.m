@@ -43,7 +43,7 @@ static UIViewController* topViewController() {
 @property AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 @property AVCapturePhotoOutput *photoOutput;
 
-@property id innerDelegate;
+@property (weak) id innerDelegate;
 @property BOOL recordeingNow;
 @property BOOL isLastFrameWritten;
 @property AKAssetWriter *assetWriter;
@@ -102,9 +102,17 @@ static UIViewController* topViewController() {
     });
 }
 
+-(CALayer *)videoLayer {
+    return _captureVideoPreviewLayer;
+}
+
 -(void)setDelegate:(id<AVCaptureVideoDataOutputSampleBufferDelegate>) delegate {
     [self.videoDataOutput setSampleBufferDelegate:(id)self queue:dispatch_queue_create("capture_session_queue", DISPATCH_QUEUE_SERIAL)];
     self.innerDelegate = delegate;
+}
+
+-(id<AVCaptureVideoDataOutputSampleBufferDelegate>)delegate {
+    return self.innerDelegate;
 }
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
@@ -183,11 +191,9 @@ static UIViewController* topViewController() {
         if (videoConnection)
             break;
     }
-//    if ([videoConnection isEnabled]) {
     _mirrored = !(self.device == [self frontCamera]);
-    [videoConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
-    [videoConnection setVideoMirrored:_mirrored];
-//    }
+    [videoConnection setVideoOrientation: AVCaptureVideoOrientationPortrait];
+    [videoConnection setVideoMirrored: _mirrored];
 }
 
 -(BOOL)start {
@@ -262,7 +268,7 @@ static UIViewController* topViewController() {
     }
 }
 
-- (void)setVideoLayer:(CALayer *)layer {
+- (void)addVideoLayerTo:(CALayer *)layer {
     if (_captureVideoPreviewLayer) {
         [_captureVideoPreviewLayer.superlayer removeObserver:self forKeyPath:@"bounds"];
         [_captureVideoPreviewLayer removeFromSuperlayer];
@@ -276,7 +282,7 @@ static UIViewController* topViewController() {
     
     if (_captureVideoPreviewLayer) {
         [_captureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-        [_captureVideoPreviewLayer setFrame: layer.bounds];
+        _captureVideoPreviewLayer.frame = layer.bounds;
         _captureVideoPreviewLayer.zPosition = -1;
         [layer insertSublayer: _captureVideoPreviewLayer atIndex:0];
         [layer addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
@@ -290,10 +296,6 @@ static UIViewController* topViewController() {
         _captureVideoPreviewLayer.frame = ((CALayer *)object).bounds;
         [CATransaction commit];
     }
-}
-
--(CALayer *)videoLayer {
-    return self.captureVideoPreviewLayer;
 }
 
 -(void)startVideoCapture {
