@@ -24,7 +24,9 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         NSString *name = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
-        self.text = name;
+        if (name.length > 0) {
+            self.text = name;
+        }
     }
     return self;
 }

@@ -6,11 +6,10 @@
 //  Copyright © 2018 Олег. All rights reserved.
 //
 
+//swiftlint:disable type_name
 import UIKit
 
 class CustomKrutilka: UIView {
-
-
     let replicatorLayer = CAReplicatorLayer()
     var fillColor: UIColor = UIColor(hexString: "6F26B1")
     var strokeColor: UIColor = UIColor(hexString: "6F26B1")

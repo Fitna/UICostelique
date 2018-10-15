@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C2A05C9212BB46400EC1EFA /* InvalidCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C2A05C7212BB46400EC1EFA /* InvalidCollectionView.h */; };
-		7C2A05CA212BB46400EC1EFA /* InvalidCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A05C8212BB46400EC1EFA /* InvalidCollectionView.m */; };
+		7C1BD011212EA1C9003F3361 /* SecretButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C1BD00F212EA1C9003F3361 /* SecretButton.h */; };
+		7C1BD012212EA1C9003F3361 /* SecretButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BD010212EA1C9003F3361 /* SecretButton.m */; };
 		7C52F313211D7F0D00A87A80 /* UICostelique.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F311211D7F0D00A87A80 /* UICostelique.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C52F42B211D7FE600A87A80 /* GlareButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C52F3CF211D7FE600A87A80 /* GlareButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C52F42C211D7FE600A87A80 /* GlareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F3D0211D7FE600A87A80 /* GlareButton.m */; };
@@ -97,11 +97,12 @@
 		7C986A7D2122BF1A005F12BE /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C986A7C2122BF1A005F12BE /* CALayer.swift */; };
 		7C986AB0212685C2005F12BE /* CustomCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C986AAE212685C2005F12BE /* CustomCollectionView.h */; };
 		7C986AB1212685C2005F12BE /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C986AAF212685C2005F12BE /* CustomCollectionView.m */; };
+		7CF2D45C2152531B00324C11 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF2D45B2152531B00324C11 /* UILabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7C2A05C7212BB46400EC1EFA /* InvalidCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvalidCollectionView.h; sourceTree = "<group>"; };
-		7C2A05C8212BB46400EC1EFA /* InvalidCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvalidCollectionView.m; sourceTree = "<group>"; };
+		7C1BD00F212EA1C9003F3361 /* SecretButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecretButton.h; sourceTree = "<group>"; };
+		7C1BD010212EA1C9003F3361 /* SecretButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecretButton.m; sourceTree = "<group>"; };
 		7C52F30E211D7F0D00A87A80 /* UICostelique.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICostelique.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C52F311211D7F0D00A87A80 /* UICostelique.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICostelique.h; sourceTree = "<group>"; };
 		7C52F312211D7F0D00A87A80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 		7C986A7C2122BF1A005F12BE /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		7C986AAE212685C2005F12BE /* CustomCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionView.h; sourceTree = "<group>"; };
 		7C986AAF212685C2005F12BE /* CustomCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionView.m; sourceTree = "<group>"; };
+		7CF2D45B2152531B00324C11 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,8 @@
 				7C52F3D0211D7FE600A87A80 /* GlareButton.m */,
 				7C52F3D1211D7FE600A87A80 /* RoundedGradientButton.h */,
 				7C52F3D2211D7FE600A87A80 /* RoundedGradientButton.m */,
+				7C1BD00F212EA1C9003F3361 /* SecretButton.h */,
+				7C1BD010212EA1C9003F3361 /* SecretButton.m */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -279,8 +283,6 @@
 				7C52F3DA211D7FE600A87A80 /* CollectionController.m */,
 				7C986AAE212685C2005F12BE /* CustomCollectionView.h */,
 				7C986AAF212685C2005F12BE /* CustomCollectionView.m */,
-				7C2A05C7212BB46400EC1EFA /* InvalidCollectionView.h */,
-				7C2A05C8212BB46400EC1EFA /* InvalidCollectionView.m */,
 			);
 			path = CollectionControllers;
 			sourceTree = "<group>";
@@ -401,6 +403,7 @@
 				7C52F41E211D7FE600A87A80 /* String.swift */,
 				7C52F41F211D7FE600A87A80 /* UIColor.swift */,
 				7C52F420211D7FE600A87A80 /* UIFont.swift */,
+				7CF2D45B2152531B00324C11 /* UILabel.swift */,
 				7C986A7C2122BF1A005F12BE /* CALayer.swift */,
 				7C52F421211D7FE600A87A80 /* Uncommon */,
 				7C52F42A211D7FE600A87A80 /* VisualEffectView.swift */,
@@ -465,12 +468,12 @@
 				7C52F462211D7FE600A87A80 /* VersionLabel.h in Headers */,
 				7C986A53212299A3005F12BE /* AKLog.h in Headers */,
 				7C52F435211D7FE600A87A80 /* AKTimer.h in Headers */,
-				7C2A05C9212BB46400EC1EFA /* InvalidCollectionView.h in Headers */,
 				7C52F313211D7F0D00A87A80 /* UICostelique.h in Headers */,
 				7C52F449211D7FE600A87A80 /* SOCopy.h in Headers */,
 				7C52F444211D7FE600A87A80 /* RadialGradientLayer.h in Headers */,
 				7C52F44F211D7FE600A87A80 /* ShaderOperation.h in Headers */,
 				7C52F44D211D7FE600A87A80 /* MetalContext.h in Headers */,
+				7C1BD011212EA1C9003F3361 /* SecretButton.h in Headers */,
 				7C986AB0212685C2005F12BE /* CustomCollectionView.h in Headers */,
 				7C52F44B211D7FE600A87A80 /* Texture&Images.h in Headers */,
 				7C52F447211D7FE600A87A80 /* SOAdd.h in Headers */,
@@ -553,7 +556,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -575,7 +578,6 @@
 				7C52F43C211D7FE600A87A80 /* ShareingController.m in Sources */,
 				7C986A7D2122BF1A005F12BE /* CALayer.swift in Sources */,
 				7C52F46B211D7FE600A87A80 /* EnumCollection.swift in Sources */,
-				7C2A05CA212BB46400EC1EFA /* InvalidCollectionView.m in Sources */,
 				7C52F46E211D7FE600A87A80 /* MemoryLayout.swift in Sources */,
 				7C52F475211D7FE600A87A80 /* LabelWithBackground.swift in Sources */,
 				7C52F43A211D7FE600A87A80 /* MusicController.m in Sources */,
@@ -589,6 +591,7 @@
 				7C52F44C211D7FE600A87A80 /* Texture&Images.m in Sources */,
 				7C986A7B2122AD58005F12BE /* FishImageView.m in Sources */,
 				7C52F47A211D7FE600A87A80 /* UILocalizable.swift in Sources */,
+				7CF2D45C2152531B00324C11 /* UILabel.swift in Sources */,
 				7C52F448211D7FE600A87A80 /* SOAdd.m in Sources */,
 				7C52F479211D7FE600A87A80 /* TransparentNavigationController.swift in Sources */,
 				7C52F472211D7FE600A87A80 /* UIFont.swift in Sources */,
@@ -599,6 +602,7 @@
 				7C52F467211D7FE600A87A80 /* ViewWithImageMask.m in Sources */,
 				7C52F45B211D7FE600A87A80 /* OnePixelView.m in Sources */,
 				7C52F44E211D7FE600A87A80 /* MetalContext.m in Sources */,
+				7C1BD012212EA1C9003F3361 /* SecretButton.m in Sources */,
 				7C52F430211D7FE600A87A80 /* AKAssetWriter.m in Sources */,
 				7C52F43E211D7FE600A87A80 /* ThreadFlow.m in Sources */,
 				7C52F470211D7FE600A87A80 /* String.swift in Sources */,
@@ -747,7 +751,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -774,7 +778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;

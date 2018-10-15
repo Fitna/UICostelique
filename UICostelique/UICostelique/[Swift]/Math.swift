@@ -6,6 +6,7 @@
 //  Copyright © 2017 Олег. All rights reserved.
 //
 
+//swiftlint:disable identifier_name
 import CoreGraphics.CGBase
 
 prefix operator √
@@ -21,7 +22,6 @@ prefix func √ (number: Float) -> Float {
 prefix func √ (number:CGFloat) -> CGFloat {
     return CGFloat(sqrt(Double(number)))
 }
-
 
 @discardableResult postfix func ++(number: inout Int) -> Int {
     number += 1

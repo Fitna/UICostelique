@@ -72,7 +72,7 @@
 }
 
 - (UIImage *)imageRepresentation {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, self.layer.contentsScale);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.mainScreen.scale);
     [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
     UIImage * screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

@@ -13,12 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Costelique)
 //@property (nonatomic) IBInspectable BOOL addBottomInsetToHeightConstraint;
 //@property (nonatomic) IBInspectable BOOL addTopInsetToHeightConstraint;
-- (UIImage *)imageRepresentation;
+- (UIImage *_Nullable)imageRepresentation;
 - (void)removeAllSubviewsRecursively:(bool)flag;
-- (__kindof UIView *__nullable)findSubviewWithTag:(long)datTag;
+- (__kindof UIView *_Nullable)findSubviewWithTag:(long)datTag;
 - (NSArray <__kindof UIView* >*)findAllSubviewsTag:(long)datTag;
 
-- (__kindof UIView *__nullable)subviewOfClass:(Class)datClass;
+- (__kindof UIView *_Nullable)subviewOfClass:(Class)datClass;
 - (NSArray <__kindof UIView* >*)allSubviewsOfClass:(Class)datClass;
 //- (id)findAllSubviewsClass:(Class)datClass;
 

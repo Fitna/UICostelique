@@ -138,10 +138,12 @@ DEBUG_INTERFACE void runDebug() {
     CGRect rct = [[self text] boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:0 attributes:dict context:[NSStringDrawingContext new]];
     return rct.size.width;
 }
+
 void *fontKey = &fontKey;
 -(UIFont *)originalFont {
     return objc_getAssociatedObject(self, fontKey);
 }
+
 -(void)setOriginalFont:(UIFont *)font {
     objc_setAssociatedObject(self, fontKey, font, OBJC_ASSOCIATION_RETAIN);
 }

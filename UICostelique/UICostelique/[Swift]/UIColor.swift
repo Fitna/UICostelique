@@ -6,6 +6,7 @@
 //  Copyright © 2018 Yegitov Aleksey. All rights reserved.
 //
 
+//swiftlint:disable identifier_name
 import UIKit
 
 public extension UIColor {

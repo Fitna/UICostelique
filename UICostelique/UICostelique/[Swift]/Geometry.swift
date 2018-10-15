@@ -5,7 +5,7 @@
 //  Created by Олег on 05.05.17.
 //  Copyright © 2017 Олег. All rights reserved.
 //
-
+//swiftlint:disable sorted_imports explicit_init identifier_name
 import UIKit.UIGeometry
 import CoreGraphics.CGGeometry
 
@@ -93,6 +93,7 @@ public extension CGSize {
     static func + (left: CGSize, right: CGSize) -> CGSize {
         return CGSize(width: left.width + right.width, height: left.height + right.height)
     }
+
 }
 
 public extension CGPoint {
@@ -124,12 +125,25 @@ public extension CGPoint {
     static func / (left: CGPoint, right: CGFloat) -> CGPoint {
         return CGPoint(x: left.x / right, y: left.y / right)
     }
+    /*
+     CGFloat pointsAngle(CGPoint center, CGPoint point1, CGPoint point2)
+     {
+     return atan2(point1.y - center.y, point1.x - center.x) - atan2(point2.y - center.y, point2.x - center.x);
+     }*/
+    func angle(with point: CGPoint, center: CGPoint = .zero) -> CGFloat {
+        return atan2(self.y - center.y, self.x - center.x) - atan2(point.y - center.y, point.x - center.x)
+    }
+
+    func rotate(inRadians angle: CGFloat) -> CGPoint {
+        let s = sin(angle)
+        let c = cos(angle)
+        return CGPoint(x: self.x * c - self.y * s, y: self.x * s + self.y * c)
+    }
 }
 
 public extension CGRect {
-
     init(_ x:CGFloat,_ y:CGFloat,_ w:CGFloat,_ h:CGFloat) {
-        self.init(x: x, y: y, width: w, height: h);
+        self.init(x: x, y: y, width: w, height: h)
     }
 
     func shift(_ shift: CGFloat) -> CGRect {
@@ -164,6 +178,22 @@ public extension CGRect {
     }
     static func * (left: CGRect, right: CGFloat) -> CGRect {
         return CGRect(left.origin.x * right, left.origin.y * right, left.width * right, left.height * right)
+    }
+}
+
+extension CGFloat {
+    func toRadians() -> CGFloat {
+        return self * CGFloat.pi / 180
+    }
+    func toDegrese() -> CGFloat {
+        return self * 180 / CGFloat.pi
+    }
+}
+
+
+extension Int {
+    func toRadians() -> CGFloat {
+        return CGFloat(self) * CGFloat.pi / 180
     }
 }
 

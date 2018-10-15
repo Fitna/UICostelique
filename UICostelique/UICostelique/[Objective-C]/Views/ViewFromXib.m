@@ -10,33 +10,6 @@
 
 @implementation ViewFromXib
 
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self prepareForNib];
-        [self setupCustomView];
-        if(CGRectIsEmpty(frame)) {
-            self.bounds = _customView.bounds;
-        }
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if(self) {
-        [self prepareForNib];
-        [self setupCustomView];
-    }
-    return self;
-}
-
--(void)prepareForNib {
-    for (UIView *vi in self.subviews) {
-        [vi removeFromSuperview];
-    }
-}
-
 +(NSString *)xibFileName {
     NSString *className = NSStringFromClass(self);
     NSRange range = [className rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"."]];
@@ -45,6 +18,35 @@
     }
     return className;
 }
+    
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        if (CGRectIsEmpty(frame)) {
+            self.bounds = _customView.bounds;
+        }
+        [self prepareForNib];
+        [self setupCustomView];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder: aDecoder];
+    if (self) {
+        [self prepareForNib];
+        [self setupCustomView];
+    }
+    return self;
+}
+
+-(void)prepareForNib {
+    [self setOpaque: false];
+    for (UIView *vi in self.subviews) {
+        [vi removeFromSuperview];
+    }
+}
+
 
 -(void)setupCustomView {
     NSString *xibName = [self.class xibFileName];

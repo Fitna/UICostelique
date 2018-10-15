@@ -180,6 +180,18 @@ static UIViewController* topViewController() {
 }
 
 -(void)fixOutput:(AVCaptureOutput *)output {
+    _mirrored = !(self.device == [self frontCamera]);
+    AVCaptureConnection *connection = [output connectionWithMediaType:AVMediaTypeVideo];
+    if ([connection isVideoOrientationSupported]) {
+        [connection setVideoOrientation: AVCaptureVideoOrientationPortrait];
+    }
+    if ([connection isVideoMirroringSupported]) {
+        [connection setVideoMirrored: _mirrored];
+    }
+}
+
+
+-(void)fixOutput_old:(AVCaptureOutput *)output {
     AVCaptureConnection *videoConnection = nil;
     for (AVCaptureConnection *connection in output.connections) {
         for (AVCaptureInputPort *port in [connection inputPorts]) {
